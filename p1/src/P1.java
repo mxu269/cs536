@@ -1,3 +1,9 @@
+import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.HashMap;
+
 /**
  * Test Sym and SymTab
  *
@@ -192,7 +198,118 @@ public class P1 {
                     "Actual: " + e);
         }
 
+        //TEST SymTab.lookupGlobal() returns correct Sym
+        try{
+            Sym doubleSym = new Sym("DOUBLE");
+            Sym boolSym = new Sym("BOOL");
 
+            symbolTable.addScope();
+            symbolTable.addDecl("myInt1", symbol);
+            symbolTable.addDecl("myDouble1", doubleSym);
+            symbolTable.addScope();
+            symbolTable.addDecl("myBool2", boolSym);
+            symbolTable.addDecl("myDouble2", doubleSym);
+
+            Sym int1 = symbolTable.lookupGlobal("myInt1");
+            if (!int1.equals(symbol)){
+                System.out.println("Failed lookupGlobal() test. Expected: " + symbol + ", Actual: " + int1);
+            }
+
+            Sym db1 = symbolTable.lookupGlobal("myDouble1");
+            if (!db1.equals(doubleSym)){
+                System.out.println("Failed lookupGlobal() test. Expected: " + doubleSym + ", Actual: " + db1);
+            }
+
+            Sym bool2 = symbolTable.lookupGlobal("myBool2");
+            if (!bool2.equals(boolSym)){
+                System.out.println("Failed lookupGlobal() test. Expected: " + boolSym + ", Actual: " + bool2);
+            }
+
+            Sym double2 = symbolTable.lookupGlobal("myDouble2");
+            if (!double2.equals(doubleSym)){
+                System.out.println("Failed lookupGlobal() test. Expected: " + doubleSym + ", Actual: " + double2);
+            }
+
+            Sym res = symbolTable.lookupGlobal("notMyName");
+            if (res != null){
+                System.out.println("Failed lookupGlobal() test. Expected: null, Actual: " + res);
+            }
+
+        }catch (Exception e){
+            System.out.println("Failed SymTab.lookupGlobal() test. Expected: success. " +
+                    "Actual: " + e);
+        }
+
+        //TEST SymTab.removeScope()
+        try{
+            symbolTable.removeScope();
+            Sym res = symbolTable.lookupGlobal("myDouble2");
+            if (res != null){
+                System.out.println("Failed removeScope() test. Expected: null, Actual: " + res);
+            }
+            res = symbolTable.lookupGlobal("myBool2");
+            if (res != null){
+                System.out.println("Failed removeScope() test. Expected: null, Actual: " + res);
+            }
+            res = symbolTable.lookupGlobal("myInt1");
+            if (!res.equals(symbol)) {
+                System.out.println("Failed removeScope() test. Expected: " + symbol + ", Actual: " + res);
+            }
+            symbolTable.removeScope();
+
+        }catch (Exception e){
+            System.out.println("Failed SymTab.removeScope() test. Expected: success, Actual: " + e);
+        }
+
+        ////TEST SymTab.removeScope() throws SymTabEmptyException when list is empty
+        try{
+            symbolTable.removeScope();
+            System.out.println("Failed SymTab.removeScope() SymTabEmptyException test. Expected: SymTabEmptyException. " +
+                    "Actual: Success");
+        }catch (SymTabEmptyException e){
+
+        }catch (Exception e){
+            System.out.println("Failed SymTab.removeScope() SymTabEmptyException test. Expected: SymTabEmptyException. " +
+                    "Actual: " + e);
+        }
+
+        //TEST print()
+        symbolTable = new SymTab();
+        try {
+            Sym doubleSym = new Sym("DOUBLE");
+            Sym boolSym = new Sym("BOOL");
+
+            symbolTable.addScope();
+            symbolTable.addDecl("myInt1", symbol);
+            symbolTable.addDecl("myDouble1", doubleSym);
+            symbolTable.addScope();
+            symbolTable.addDecl("myBool2", boolSym);
+            symbolTable.addDecl("myDouble2", doubleSym);
+
+            HashMap<String, Sym> hm1 = new HashMap<>();
+            hm1.put("myInt1", symbol);
+            hm1.put("myDouble1", doubleSym);
+
+            HashMap<String, Sym> hm2 = new HashMap<>();
+            hm2.put("myBool2", boolSym);
+            hm2.put("myDouble2", doubleSym);
+
+            String expected = "\n--- Symbol Table ---\n" + hm1 + "\n" + hm2 + "\n";
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(baos));
+
+            String output = baos.toString();
+
+            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+
+            if (!expected.equals(output)){
+                System.out.println("Failed SymTam.print() test. \nExpected: " + expected + "\nActual: "+ output);
+            }
+        }catch (Exception e){
+            System.out.println("Failed SymTab.print() test. Expected: success. " +
+                    "Actual: " + e);
+        }
     }
 }
 
