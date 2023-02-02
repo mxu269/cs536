@@ -161,19 +161,36 @@ public class P1 {
             System.out.println("Failed lookupLocal() test. Expected: success, Actual: " + e);
         }
 
-        //TEST lookupLocal() returns null when list doesn't contain name
+        //TEST lookupLocal() returns null when list[0] doesn't contain name
         try{
             Sym result = symbolTable.lookupLocal("notMyInt");
-            if (!result.equals(null)){
+            if (result != null){
+                System.out.println("Failed lookupLocal() test. Expected: null, " +  "Actual: " + result);
+            }
+            symbolTable.addScope();
+            symbolTable.addDecl("myInt2", symbol);
+            result = symbolTable.lookupLocal("myInt2");
+            if (result != null){
                 System.out.println("Failed lookupLocal() test. Expected: null, " +  "Actual: " + result);
             }
         }catch (Exception e){
             System.out.println("Failed lookupLocal() test. Expected: null, Actual: " + e);
         }
 
+        //reset symbolTable
+        symbolTable = new SymTab();
 
+        //TEST SymTab.lookupGlobal() throws SymTabEmptyException when list is empty
+        try{
+            symbolTable.lookupGlobal("myInt");
+            System.out.println("Failed SymTab.lookupGlobal() SymTabEmptyException test. Expected: SymTabEmptyException. " +
+                    "Actual: Success");
+        }catch (SymTabEmptyException e){
 
-
+        }catch (Exception e){
+            System.out.println("Failed SymTab.lookupGlobal() SymTabEmptyException test. Expected: SymTabEmptyException. " +
+                    "Actual: " + e);
+        }
 
 
     }
