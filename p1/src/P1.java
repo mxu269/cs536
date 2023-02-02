@@ -1,3 +1,8 @@
+// --== CS536 File Header Information ==--
+// Name: Jerry Xu
+// Email: mxu269@wisc.edu
+// Lecturer: Beck Hasti
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
