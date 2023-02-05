@@ -30,7 +30,7 @@ import java.util.HashMap;
  *
  * It produces output ONLY if a test fails.
  */
-public class P1 {
+public class P1Orig {
     public static void main(String[] args) {
         //Sym class TESTS
         Sym symbol = new Sym("INT");
@@ -50,6 +50,7 @@ public class P1 {
 
         //TEST SymTab.addDecl() throws SymTabEmptyException when list is empty
         try{
+            symbolTable.removeScope();
             symbolTable.addDecl("myInt", symbol);
             System.out.println("Failed SymTab.addDecl() SymTabEmptyException test. Expected: SymTabEmptyException. " +
                     "Actual: Success");
@@ -65,6 +66,7 @@ public class P1 {
 
         //Test SymTab.addScope() and SymTab.removeScope() chain
         try{
+            symbolTable.removeScope();
             symbolTable.addScope();
             symbolTable.removeScope();
         }catch (Exception e){
@@ -141,6 +143,7 @@ public class P1 {
 
         //TEST SymTab.lookupLocal() throws SymTabEmptyException when list is empty
         try{
+            symbolTable.removeScope();
             symbolTable.lookupLocal("myInt");
             System.out.println("Failed SymTab.lookupLocal() SymTabEmptyException test. Expected: SymTabEmptyException. " +
                     "Actual: Success");
@@ -180,7 +183,7 @@ public class P1 {
             }
             symbolTable.addScope();
             symbolTable.addDecl("myInt2", symbol);
-            result = symbolTable.lookupLocal("myInt2");
+            result = symbolTable.lookupLocal("NotMyInt");
             if (result != null){
                 System.out.println("Failed lookupLocal() test. Expected: null, " +  "Actual: " + result);
             }
@@ -193,6 +196,7 @@ public class P1 {
 
         //TEST SymTab.lookupGlobal() throws SymTabEmptyException when list is empty
         try{
+            symbolTable.removeScope();
             symbolTable.lookupGlobal("myInt");
             System.out.println("Failed SymTab.lookupGlobal() SymTabEmptyException test. Expected: SymTabEmptyException. " +
                     "Actual: Success");
@@ -284,7 +288,6 @@ public class P1 {
             Sym doubleSym = new Sym("DOUBLE");
             Sym boolSym = new Sym("BOOL");
 
-            symbolTable.addScope();
             symbolTable.addDecl("myInt1", symbol);
             symbolTable.addDecl("myDouble1", doubleSym);
             symbolTable.addScope();
@@ -299,15 +302,15 @@ public class P1 {
             hm2.put("myBool2", boolSym);
             hm2.put("myDouble2", doubleSym);
 
-            String expected = "\n--- Symbol Table ---\n" + hm1 + "\n" + hm2 + "\n";
+            String expected = "\n--- Symbol Table ---\n" + hm2 + "\n" + hm1 + "\n" + "\n";
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             System.setOut(new PrintStream(baos));
+            symbolTable.print();
 
             String output = baos.toString();
 
             System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-
             if (!expected.equals(output)){
                 System.out.println("Failed SymTam.print() test. \nExpected: " + expected + "\nActual: "+ output);
             }
@@ -315,6 +318,7 @@ public class P1 {
             System.out.println("Failed SymTab.print() test. Expected: success. " +
                     "Actual: " + e);
         }
+        System.out.println("End of test");
     }
 }
 

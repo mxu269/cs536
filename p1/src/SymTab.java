@@ -2,6 +2,7 @@
 // Name: Jerry Xu
 // Email: mxu269@wisc.edu
 // Lecturer: Beck Hasti
+import java.io.StringWriter;
 import java.util.*;
 public class SymTab {
 
@@ -65,6 +66,13 @@ public class SymTab {
     }
 
     void print(){
+        StringWriter sw = new StringWriter();
+        sw.write("\n--- Symbol Table ---\n");
+        for(HashMap<String, Sym> hm: list){
+            sw.write(hm + "\n");
+        }
+        sw.flush();
+        System.out.println(sw.toString());
 
     }
 }
