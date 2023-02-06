@@ -1,0 +1,3 @@
+1. A red-black tree is a self balancing binary tree, and a property of a binary tree is that each node has an order. In our case, the keys in the HashMap are strings and do not have a precedence. Thus, a HashTree is more appropriate becuase it saves the self-balencing operations when inserting to an RBT.
+
+2. I used LinkedList. Becuase when removing scope, we remove the first element of the list. In ArrayList, the first element is removed and the entire array is shifted which takes time. In LinkedList, we are just able to change the header of the list.
