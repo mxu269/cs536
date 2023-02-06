@@ -6,10 +6,11 @@ import java.io.StringWriter;
 import java.util.*;
 public class SymTab {
 
-    private ArrayList<HashMap<String, Sym>> list;
+//    private ArrayList<HashMap<String, Sym>> list;
+    private LinkedList<HashMap<String, Sym>> list;
     public SymTab(){
         HashMap<String, Sym> newHM = new HashMap<>();
-        list = new ArrayList<>();
+        list = new LinkedList<>();
         list.add(newHM);
     }
 
@@ -20,7 +21,7 @@ public class SymTab {
             throw new IllegalArgumentException();
         }
 
-        HashMap<String, Sym> hm = list.get(0);
+        HashMap<String, Sym> hm = list.getFirst();
         if (hm.containsKey(name)){
             throw new SymDuplicationException();
         }
@@ -31,7 +32,7 @@ public class SymTab {
 
     void addScope(){
         HashMap<String, Sym> newHM = new HashMap<>();
-        list.add(0, newHM);
+        list.addFirst(newHM);
 
     }
 
@@ -39,7 +40,7 @@ public class SymTab {
         if (list.isEmpty()){
             throw new SymTabEmptyException();
         }
-        return list.get(0).get(name);
+        return list.getFirst().get(name);
     }
 
     Sym lookupGlobal(String name) throws SymTabEmptyException{
@@ -61,7 +62,7 @@ public class SymTab {
         if (list.isEmpty()){
             throw new SymTabEmptyException();
         }
-        list.remove(0);
+        list.removeFirst();
 
     }
 
