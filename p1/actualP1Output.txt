@@ -1,0 +1,22 @@
+
+--- Symbol Table ---
+{}
+
+
+--- Symbol Table ---
+{ddd=double}
+{ccc=void}
+{aaa=bool, bbb=int}
+
+
+--- Symbol Table ---
+{ccc=void}
+{aaa=bool, bbb=int}
+
+
+--- Symbol Table ---
+{aaa=bool, bbb=int}
+
+
+--- Symbol Table ---
+
