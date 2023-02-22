@@ -30,14 +30,14 @@ public class sym {
   public static final int DOT = 23;
   public static final int ID = 14;
   public static final int EOF = 0;
-  public static final int MINUSMINUS = 27;
+  public static final int MINUSMINUS = 27; 
   public static final int RETURN = 13;
   public static final int TRUE = 5;
   public static final int LCURLY = 17;
   public static final int SCAN = 8;
   public static final int VOID = 4;
   public static final int RCURLY = 18;
-  public static final int INTLITERAL = 15;
+  public static final int INTLITERAL = 15; //Need edit
   public static final int TIMES = 30;
   public static final int ELSE = 11;
   public static final int PRINT = 9;
@@ -45,7 +45,7 @@ public class sym {
   public static final int NOTEQUALS = 36;
   public static final int WHILE = 12;
   public static final int GREATEREQ = 40;
-  public static final int STRINGLITERAL = 16;
+  public static final int STRINGLITERAL = 16; //need implement
   public static final int FALSE = 6;
   public static final int RECORD = 7;
 }

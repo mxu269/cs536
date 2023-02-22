@@ -257,16 +257,126 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 3 */ YY_NO_ANCHOR,
 		/* 4 */ YY_NO_ANCHOR,
 		/* 5 */ YY_NO_ANCHOR,
-		/* 6 */ YY_NO_ANCHOR
+		/* 6 */ YY_NO_ANCHOR,
+		/* 7 */ YY_NO_ANCHOR,
+		/* 8 */ YY_NO_ANCHOR,
+		/* 9 */ YY_NO_ANCHOR,
+		/* 10 */ YY_NO_ANCHOR,
+		/* 11 */ YY_NO_ANCHOR,
+		/* 12 */ YY_NO_ANCHOR,
+		/* 13 */ YY_NO_ANCHOR,
+		/* 14 */ YY_NO_ANCHOR,
+		/* 15 */ YY_NO_ANCHOR,
+		/* 16 */ YY_NO_ANCHOR,
+		/* 17 */ YY_NO_ANCHOR,
+		/* 18 */ YY_NO_ANCHOR,
+		/* 19 */ YY_NO_ANCHOR,
+		/* 20 */ YY_NO_ANCHOR,
+		/* 21 */ YY_NO_ANCHOR,
+		/* 22 */ YY_NO_ANCHOR,
+		/* 23 */ YY_NO_ANCHOR,
+		/* 24 */ YY_NO_ANCHOR,
+		/* 25 */ YY_NO_ANCHOR,
+		/* 26 */ YY_NO_ANCHOR,
+		/* 27 */ YY_NO_ANCHOR,
+		/* 28 */ YY_NO_ANCHOR,
+		/* 29 */ YY_NO_ANCHOR,
+		/* 30 */ YY_NO_ANCHOR,
+		/* 31 */ YY_NO_ANCHOR,
+		/* 32 */ YY_NO_ANCHOR,
+		/* 33 */ YY_NO_ANCHOR,
+		/* 34 */ YY_NO_ANCHOR,
+		/* 35 */ YY_NO_ANCHOR,
+		/* 36 */ YY_NO_ANCHOR,
+		/* 37 */ YY_NO_ANCHOR,
+		/* 38 */ YY_NO_ANCHOR,
+		/* 39 */ YY_NO_ANCHOR,
+		/* 40 */ YY_NO_ANCHOR,
+		/* 41 */ YY_NO_ANCHOR,
+		/* 42 */ YY_NO_ANCHOR,
+		/* 43 */ YY_NO_ANCHOR,
+		/* 44 */ YY_NO_ANCHOR,
+		/* 45 */ YY_NO_ANCHOR,
+		/* 46 */ YY_NO_ANCHOR,
+		/* 47 */ YY_NO_ANCHOR,
+		/* 48 */ YY_NO_ANCHOR,
+		/* 49 */ YY_NO_ANCHOR,
+		/* 50 */ YY_NO_ANCHOR,
+		/* 51 */ YY_NO_ANCHOR,
+		/* 52 */ YY_NO_ANCHOR,
+		/* 53 */ YY_NO_ANCHOR,
+		/* 54 */ YY_NO_ANCHOR,
+		/* 55 */ YY_NO_ANCHOR,
+		/* 56 */ YY_NO_ANCHOR,
+		/* 57 */ YY_NO_ANCHOR,
+		/* 58 */ YY_NO_ANCHOR,
+		/* 59 */ YY_NO_ANCHOR,
+		/* 60 */ YY_NO_ANCHOR,
+		/* 61 */ YY_NO_ANCHOR,
+		/* 62 */ YY_NO_ANCHOR,
+		/* 63 */ YY_NO_ANCHOR,
+		/* 64 */ YY_NO_ANCHOR,
+		/* 65 */ YY_NO_ANCHOR,
+		/* 66 */ YY_NO_ANCHOR,
+		/* 67 */ YY_NO_ANCHOR,
+		/* 68 */ YY_NO_ANCHOR,
+		/* 69 */ YY_NO_ANCHOR,
+		/* 70 */ YY_NO_ANCHOR,
+		/* 71 */ YY_NO_ANCHOR,
+		/* 72 */ YY_NO_ANCHOR,
+		/* 73 */ YY_NO_ANCHOR,
+		/* 74 */ YY_NO_ANCHOR,
+		/* 75 */ YY_NO_ANCHOR,
+		/* 76 */ YY_NO_ANCHOR,
+		/* 77 */ YY_NO_ANCHOR,
+		/* 78 */ YY_NO_ANCHOR,
+		/* 79 */ YY_NO_ANCHOR,
+		/* 80 */ YY_NO_ANCHOR,
+		/* 81 */ YY_NO_ANCHOR,
+		/* 82 */ YY_NO_ANCHOR,
+		/* 83 */ YY_NO_ANCHOR,
+		/* 84 */ YY_NO_ANCHOR,
+		/* 85 */ YY_NO_ANCHOR,
+		/* 86 */ YY_NO_ANCHOR,
+		/* 87 */ YY_NO_ANCHOR,
+		/* 88 */ YY_NO_ANCHOR,
+		/* 89 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"5:9,3,2,5:2,0,5:18,3,5:10,4,5:4,1:10,5:70,6:2")[0];
+"42:9,41,40,42:2,0,42:18,41,42:5,33,42,27,30,39,23,35,29,36,24,22:10,42,32,2" +
+"8,25,26,42:2,20:26,42,31,42:2,21,42,8,5,16,4,7,14,11,19,3,20:2,6,20,9,2,17," +
+"20,12,15,10,13,1,18,20:3,37,34,38,42:2,43:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,7,
-"0,1,2,3,2:3")[0];
+	private int yy_rmap[] = unpackFromString(1,90,
+"0,1,2,3,4,5,6,4,7,8,4,9,4,10,4:6,11,4,12,4:9,12:11,13,4,14,15,16,17,18,19,2" +
+"0,21,22,23,24,25,12,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,4" +
+"4,45,12,46,47,48,49,50,51,52,53,54,55,56")[0];
 
-	private int yy_nxt[][] = unpackFromString(4,7,
-"-1,1,2,3,4,5,6,-1,1,-1:15,3,-1:3");
+	private int yy_nxt[][] = unpackFromString(57,44,
+"-1,1,78,43,78,81,78,82,78:2,83,78,84,78,85,86,78,87,88,78:3,2,3,4,5,6,7,8,9" +
+",10,11,12,13,89,14,15,16,17,18,19,20,44,21,-1,78,56,78:18,57:2,-1:11,78,-1:" +
+"31,2,-1:44,23,-1:89,24,-1:43,25,-1:43,26,-1:3,27,-1:40,28,-1:2,29,-1:39,30," +
+"-1:51,31,-1:51,20,-1:3,78:20,57:2,-1:11,78,-1:10,78:8,58,78:4,22,78:6,57:2," +
+"-1:11,78,-1:10,78:3,32,78:16,57:2,-1:11,78,-1:10,78:6,33,78:13,57:2,-1:11,7" +
+"8,-1:10,78:6,34,78:13,57:2,-1:11,78,-1:10,78:8,35,78:11,57:2,-1:11,78,-1:10" +
+",78:6,36,78:13,57:2,-1:11,78,-1:10,78:9,37,78:10,57:2,-1:11,78,-1:10,78:6,3" +
+"8,78:13,57:2,-1:11,78,-1:10,78:8,39,78:11,57:2,-1:11,78,-1:10,78:3,40,78:16" +
+",57:2,-1:11,78,-1:10,78:11,41,78:8,57:2,-1:11,78,-1:10,78:8,42,78:11,57:2,-" +
+"1:11,78,-1:10,78:2,45,78:17,57:2,-1:11,78,-1:10,78:9,66,78:10,57:2,-1:11,78" +
+",-1:10,78,79,78:18,57:2,-1:11,78,-1:10,78:14,46,78:5,57:2,-1:11,78,-1:10,78" +
+":12,47,78:7,57:2,-1:11,78,-1:10,78:9,67,78:5,68,78:4,57:2,-1:11,78,-1:10,78" +
+":5,69,78:14,57:2,-1:11,78,-1:10,78:7,48,78:12,57:2,-1:11,78,-1:10,78:2,70,7" +
+"8:17,57:2,-1:11,78,-1:10,78:6,72,78:13,57:2,-1:11,78,-1:10,78:12,74,78:7,57" +
+":2,-1:11,78,-1:10,78,75,78:18,57:2,-1:11,78,-1:10,78:14,49,78:5,57:2,-1:11," +
+"78,-1:10,78:8,50,78:11,57:2,-1:11,78,-1:10,78:5,51,78:14,57:2,-1:11,78,-1:1" +
+"0,78:10,76,78:9,57:2,-1:11,78,-1:10,78:6,77,78:13,57:2,-1:11,78,-1:10,78:11" +
+",52,78:8,57:2,-1:11,78,-1:10,78:11,53,78:8,57:2,-1:11,78,-1:10,78:6,54,78:1" +
+"3,57:2,-1:11,78,-1:10,78:7,55,78:12,57:2,-1:11,78,-1:10,78:5,73,78:14,57:2," +
+"-1:11,78,-1:10,78:2,71,78:17,57:2,-1:11,78,-1:10,78,59,78:18,57:2,-1:11,78," +
+"-1:10,78:5,60,78:14,57:2,-1:11,78,-1:10,78:11,61,78:8,57:2,-1:11,78,-1:10,7" +
+"8:6,62,78:13,57:2,-1:11,78,-1:10,78:7,63,78:12,57:2,-1:11,78,-1:10,78:15,64" +
+",78:4,57:2,-1:11,78,-1:10,78:11,65,78:8,57:2,-1:11,78,-1:10,78:18,80,78,57:" +
+"2,-1:11,78,-1:10,78:20,57:2,-1:11,57,-1:9");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -314,6 +424,14 @@ return new Symbol(sym.EOF);
 					yy_to_mark();
 					switch (yy_last_accept_state) {
 					case 1:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -2:
+						break;
+					case 2:
 						{ // NOTE: the following computation of the integer value does
             //       NOT check for overflow. This must be changed.
             int val = Integer.parseInt(yytext());
@@ -322,33 +440,653 @@ return new Symbol(sym.EOF);
             CharNum.num += yytext().length();
             return S;
           }
-					case -2:
-						break;
-					case 2:
-						{ CharNum.num = 1; }
 					case -3:
 						break;
 					case 3:
-						{ CharNum.num += yytext().length(); }
-					case -4:
-						break;
-					case 4:
 						{ Symbol S = new Symbol(sym.PLUS, new TokenVal(yyline+1, CharNum.num));
             CharNum.num++;
             return S;
           }
+					case -4:
+						break;
+					case 4:
+						{ Symbol S = new Symbol(sym.DIVIDE, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
 					case -5:
 						break;
 					case 5:
-						{ ErrMsg.fatal(yyline+1, CharNum.num,
-                         "ignoring illegal character: " + yytext());
+						{ Symbol S = new Symbol(sym.ASSIGN, new TokenVal(yyline+1, CharNum.num));
             CharNum.num++;
+            return S;
           }
 					case -6:
 						break;
 					case 6:
-						
+						{ Symbol S = new Symbol(sym.GREATER, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
 					case -7:
+						break;
+					case 7:
+						{ Symbol S = new Symbol(sym.LPAREN, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -8:
+						break;
+					case 8:
+						{ Symbol S = new Symbol(sym.LESS, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -9:
+						break;
+					case 9:
+						{ Symbol S = new Symbol(sym.MINUS, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -10:
+						break;
+					case 10:
+						{ Symbol S = new Symbol(sym.RPAREN, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -11:
+						break;
+					case 11:
+						{ Symbol S = new Symbol(sym.NOT, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -12:
+						break;
+					case 12:
+						{ Symbol S = new Symbol(sym.SEMICOLON, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -13:
+						break;
+					case 13:
+						{ ErrMsg.fatal(yyline+1, CharNum.num,
+                         "ignoring illegal character: " + yytext());
+            CharNum.num++;
+          }
+					case -14:
+						break;
+					case 14:
+						{ Symbol S = new Symbol(sym.COMMA, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num++;
+          return S;
+        }
+					case -15:
+						break;
+					case 15:
+						{ Symbol S = new Symbol(sym.DOT, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num++;
+            return S;
+          }
+					case -16:
+						break;
+					case 16:
+						{ Symbol S = new Symbol(sym.LCURLY, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num++;
+            return S;
+          }
+					case -17:
+						break;
+					case 17:
+						{ Symbol S = new Symbol(sym.RCURLY, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num++;
+            return S;
+          }
+					case -18:
+						break;
+					case 18:
+						{ Symbol S = new Symbol(sym.TIMES, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num++;
+            return S;
+          }
+					case -19:
+						break;
+					case 19:
+						{ CharNum.num = 1; }
+					case -20:
+						break;
+					case 20:
+						{ CharNum.num += yytext().length(); }
+					case -21:
+						break;
+					case 21:
+						
+					case -22:
+						break;
+					case 22:
+						{ Symbol S = new Symbol(sym.IF, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num++;
+            return S;
+          }
+					case -23:
+						break;
+					case 23:
+						{ Symbol S = new Symbol(sym.PLUSPLUS, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -24:
+						break;
+					case 24:
+						{ Symbol S = new Symbol(sym.EQUALS, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -25:
+						break;
+					case 25:
+						{ Symbol S = new Symbol(sym.GREATEREQ, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -26:
+						break;
+					case 26:
+						{ Symbol S = new Symbol(sym.LESSEQ, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += 2;
+            return S;
+          }
+					case -27:
+						break;
+					case 27:
+						{ Symbol S = new Symbol(sym.WRITE, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -28:
+						break;
+					case 28:
+						{ Symbol S = new Symbol(sym.READ, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -29:
+						break;
+					case 29:
+						{ Symbol S = new Symbol(sym.MINUSMINUS, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += 2;
+            return S;
+          }
+					case -30:
+						break;
+					case 30:
+						{ Symbol S = new Symbol(sym.NOTEQUALS, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -31:
+						break;
+					case 31:
+						{ Symbol S = new Symbol(sym.AND, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += 2;
+          return S;
+        }
+					case -32:
+						break;
+					case 32:
+						{ Symbol S = new Symbol(sym.VOID, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -33:
+						break;
+					case 33:
+						{ Symbol S = new Symbol(sym.ELSE, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -34:
+						break;
+					case 34:
+						{ Symbol S = new Symbol(sym.TRUE, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -35:
+						break;
+					case 35:
+						{ Symbol S = new Symbol(sym.SCAN, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -36:
+						break;
+					case 36:
+						{ Symbol S = new Symbol(sym.FALSE, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -37:
+						break;
+					case 37:
+						{ Symbol S = new Symbol(sym.PRINT, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -38:
+						break;
+					case 38:
+						{ Symbol S = new Symbol(sym.WHILE, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -39:
+						break;
+					case 39:
+						{ Symbol S = new Symbol(sym.RETURN, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -40:
+						break;
+					case 40:
+						{ Symbol S = new Symbol(sym.RECORD, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -41:
+						break;
+					case 41:
+						{ Symbol S = new Symbol(sym.INT, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += yytext().length();
+          return S;
+        }
+					case -42:
+						break;
+					case 42:
+						{ Symbol S = new Symbol(sym.BOOL, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += yytext().length();
+          return S;
+        }
+					case -43:
+						break;
+					case 43:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -44:
+						break;
+					case 44:
+						{ ErrMsg.fatal(yyline+1, CharNum.num,
+                         "ignoring illegal character: " + yytext());
+            CharNum.num++;
+          }
+					case -45:
+						break;
+					case 45:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -46:
+						break;
+					case 46:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -47:
+						break;
+					case 47:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -48:
+						break;
+					case 48:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -49:
+						break;
+					case 49:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -50:
+						break;
+					case 50:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -51:
+						break;
+					case 51:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -52:
+						break;
+					case 52:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -53:
+						break;
+					case 53:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -54:
+						break;
+					case 54:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -55:
+						break;
+					case 55:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -56:
+						break;
+					case 56:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -57:
+						break;
+					case 57:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -58:
+						break;
+					case 58:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -59:
+						break;
+					case 59:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -60:
+						break;
+					case 60:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -61:
+						break;
+					case 61:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -62:
+						break;
+					case 62:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -63:
+						break;
+					case 63:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -64:
+						break;
+					case 64:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -65:
+						break;
+					case 65:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -66:
+						break;
+					case 66:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -67:
+						break;
+					case 67:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -68:
+						break;
+					case 68:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -69:
+						break;
+					case 69:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -70:
+						break;
+					case 70:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -71:
+						break;
+					case 71:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -72:
+						break;
+					case 72:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -73:
+						break;
+					case 73:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -74:
+						break;
+					case 74:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -75:
+						break;
+					case 75:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -76:
+						break;
+					case 76:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -77:
+						break;
+					case 77:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -78:
+						break;
+					case 78:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -79:
+						break;
+					case 79:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -80:
+						break;
+					case 80:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -81:
+						break;
+					case 81:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -82:
+						break;
+					case 82:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -83:
+						break;
+					case 83:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -84:
+						break;
+					case 84:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -85:
+						break;
+					case 85:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -86:
+						break;
+					case 86:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -87:
+						break;
+					case 87:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -88:
+						break;
+					case 88:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -89:
+						break;
+					case 89:
+						{ Symbol S = new Symbol(sym.ID,
+                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -90:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
