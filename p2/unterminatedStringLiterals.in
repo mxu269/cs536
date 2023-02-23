@@ -1,2 +1,3 @@
 "unterminated
 "also unterminated \"
+if (myVar == "hello 

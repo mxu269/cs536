@@ -296,97 +296,149 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 42 */ YY_NO_ANCHOR,
 		/* 43 */ YY_NO_ANCHOR,
 		/* 44 */ YY_NO_ANCHOR,
-		/* 45 */ YY_NOT_ACCEPT,
+		/* 45 */ YY_NO_ANCHOR,
 		/* 46 */ YY_NO_ANCHOR,
 		/* 47 */ YY_NO_ANCHOR,
-		/* 48 */ YY_NOT_ACCEPT,
-		/* 49 */ YY_NO_ANCHOR,
+		/* 48 */ YY_NO_ANCHOR,
+		/* 49 */ YY_NOT_ACCEPT,
 		/* 50 */ YY_NO_ANCHOR,
 		/* 51 */ YY_NO_ANCHOR,
 		/* 52 */ YY_NO_ANCHOR,
 		/* 53 */ YY_NO_ANCHOR,
 		/* 54 */ YY_NO_ANCHOR,
 		/* 55 */ YY_NO_ANCHOR,
-		/* 56 */ YY_NO_ANCHOR,
+		/* 56 */ YY_NOT_ACCEPT,
 		/* 57 */ YY_NO_ANCHOR,
 		/* 58 */ YY_NO_ANCHOR,
 		/* 59 */ YY_NO_ANCHOR,
 		/* 60 */ YY_NO_ANCHOR,
 		/* 61 */ YY_NO_ANCHOR,
-		/* 62 */ YY_NO_ANCHOR,
+		/* 62 */ YY_NOT_ACCEPT,
 		/* 63 */ YY_NO_ANCHOR,
 		/* 64 */ YY_NO_ANCHOR,
-		/* 65 */ YY_NO_ANCHOR,
+		/* 65 */ YY_NOT_ACCEPT,
 		/* 66 */ YY_NO_ANCHOR,
-		/* 67 */ YY_NO_ANCHOR,
+		/* 67 */ YY_NOT_ACCEPT,
 		/* 68 */ YY_NO_ANCHOR,
-		/* 69 */ YY_NO_ANCHOR,
+		/* 69 */ YY_NOT_ACCEPT,
 		/* 70 */ YY_NO_ANCHOR,
-		/* 71 */ YY_NO_ANCHOR,
+		/* 71 */ YY_NOT_ACCEPT,
 		/* 72 */ YY_NO_ANCHOR,
-		/* 73 */ YY_NO_ANCHOR,
+		/* 73 */ YY_NOT_ACCEPT,
 		/* 74 */ YY_NO_ANCHOR,
-		/* 75 */ YY_NO_ANCHOR,
+		/* 75 */ YY_NOT_ACCEPT,
 		/* 76 */ YY_NO_ANCHOR,
-		/* 77 */ YY_NO_ANCHOR,
+		/* 77 */ YY_NOT_ACCEPT,
 		/* 78 */ YY_NO_ANCHOR,
-		/* 79 */ YY_NO_ANCHOR,
+		/* 79 */ YY_NOT_ACCEPT,
 		/* 80 */ YY_NO_ANCHOR,
-		/* 81 */ YY_NO_ANCHOR,
+		/* 81 */ YY_NOT_ACCEPT,
 		/* 82 */ YY_NO_ANCHOR,
-		/* 83 */ YY_NO_ANCHOR,
-		/* 84 */ YY_NO_ANCHOR,
-		/* 85 */ YY_NO_ANCHOR,
-		/* 86 */ YY_NO_ANCHOR,
-		/* 87 */ YY_NO_ANCHOR,
-		/* 88 */ YY_NO_ANCHOR,
-		/* 89 */ YY_NO_ANCHOR,
-		/* 90 */ YY_NO_ANCHOR,
+		/* 83 */ YY_NOT_ACCEPT,
+		/* 84 */ YY_NOT_ACCEPT,
+		/* 85 */ YY_NOT_ACCEPT,
+		/* 86 */ YY_NOT_ACCEPT,
+		/* 87 */ YY_NOT_ACCEPT,
+		/* 88 */ YY_NOT_ACCEPT,
+		/* 89 */ YY_NOT_ACCEPT,
+		/* 90 */ YY_NOT_ACCEPT,
 		/* 91 */ YY_NO_ANCHOR,
 		/* 92 */ YY_NO_ANCHOR,
 		/* 93 */ YY_NO_ANCHOR,
-		/* 94 */ YY_NO_ANCHOR
+		/* 94 */ YY_NO_ANCHOR,
+		/* 95 */ YY_NOT_ACCEPT,
+		/* 96 */ YY_NOT_ACCEPT,
+		/* 97 */ YY_NOT_ACCEPT,
+		/* 98 */ YY_NO_ANCHOR,
+		/* 99 */ YY_NO_ANCHOR,
+		/* 100 */ YY_NO_ANCHOR,
+		/* 101 */ YY_NO_ANCHOR,
+		/* 102 */ YY_NO_ANCHOR,
+		/* 103 */ YY_NO_ANCHOR,
+		/* 104 */ YY_NO_ANCHOR,
+		/* 105 */ YY_NO_ANCHOR,
+		/* 106 */ YY_NO_ANCHOR,
+		/* 107 */ YY_NO_ANCHOR,
+		/* 108 */ YY_NO_ANCHOR,
+		/* 109 */ YY_NO_ANCHOR,
+		/* 110 */ YY_NO_ANCHOR,
+		/* 111 */ YY_NO_ANCHOR,
+		/* 112 */ YY_NO_ANCHOR,
+		/* 113 */ YY_NO_ANCHOR,
+		/* 114 */ YY_NO_ANCHOR,
+		/* 115 */ YY_NO_ANCHOR,
+		/* 116 */ YY_NO_ANCHOR,
+		/* 117 */ YY_NO_ANCHOR,
+		/* 118 */ YY_NO_ANCHOR,
+		/* 119 */ YY_NO_ANCHOR,
+		/* 120 */ YY_NO_ANCHOR,
+		/* 121 */ YY_NO_ANCHOR,
+		/* 122 */ YY_NO_ANCHOR,
+		/* 123 */ YY_NO_ANCHOR,
+		/* 124 */ YY_NO_ANCHOR,
+		/* 125 */ YY_NO_ANCHOR,
+		/* 126 */ YY_NO_ANCHOR,
+		/* 127 */ YY_NO_ANCHOR,
+		/* 128 */ YY_NO_ANCHOR,
+		/* 129 */ YY_NO_ANCHOR,
+		/* 130 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"45:9,44,43,45:2,23,45:18,44,45,20,45:3,36,22,31,34,42,27,38,33,39,28,26:10," +
-"45,35,32,29,30,22,45,24:26,45,21,45:2,25,45,8,5,16,4,7,14,11,19,3,24:2,6,24" +
-",9,2,17,24,12,15,10,13,1,18,24:3,40,37,41,45:2,0:2")[0];
+"46:9,44,43,46:2,23,46:18,44,46,20,45,46:2,36,22,31,34,42,27,38,33,39,28,26:" +
+"10,46,35,32,29,30,22,46,24:26,46,21,46:2,25,46,8,5,16,4,7,14,11,19,3,24:2,6" +
+",24,9,2,17,24,12,15,10,13,1,18,24:3,40,37,41,46:2,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,95,
-"0,1,2,3,4,5,6,1,7,8,1,9,10,1:8,11,12,1:11,12:11,3,13,1,14,15,16,17,18,19,20" +
-",21,22,23,24,25,26,27,12,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44" +
-",45,46,47,12,48,49,50,51,52,53,54,55,56,57,58")[0];
+	private int yy_rmap[] = unpackFromString(1,131,
+"0,1,2,3,4,5,6,7,8,9,1,10,11,1:8,12,13,14,1:11,13:4,15,16,13:3,16,13:4,3,17," +
+"1:2,18,19,18,20,21,22,15,16,1,23,24,25:2,26,14,27,28,29,30,31,32,33,34,35,3" +
+"6,37,38,39,16,40,19,41,42,43,44,45,46,47,48,49,44,49,18,50:2,13,51,52,53,54" +
+",55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,13,71,72,73,74,75,76,77,78" +
+",79,80,81")[0];
 
-	private int yy_nxt[][] = unpackFromString(59,46,
-"1,2,83,46,83,86,83,87,83:2,88,83,89,83,90,91,83,92,93,83,3,4,47,-1,83:2,5,6" +
-",7,8,9,10,11,12,13,14,50,94,15,16,17,18,19,20,21,47,-1:47,83,61,83:17,-1:4," +
-"83,62:2,-1:10,83,-1:9,45:19,23,48,45:21,24,45:2,-1:29,25,-1:42,5,-1:46,26,-" +
-"1:47,27,-1:45,28,-1:45,29,-1:3,30,-1:42,31,-1:2,32,-1:56,21,-1:2,83:19,-1:4" +
-",83,62:2,-1:10,83,-1:9,83:8,63,83:4,22,83:5,-1:4,83,62:2,-1:10,83,-1:17,45:" +
-"2,-1:9,45:3,-1:24,83:3,34,83:15,-1:4,83,62:2,-1:10,83,-1:44,33,-1:10,83:6,3" +
-"5,83:12,-1:4,83,62:2,-1:10,83,-1:9,83:6,36,83:12,-1:4,83,62:2,-1:10,83,-1:9" +
-",83:8,37,83:10,-1:4,83,62:2,-1:10,83,-1:9,83:6,38,83:12,-1:4,83,62:2,-1:10," +
-"83,-1:9,83:9,39,83:9,-1:4,83,62:2,-1:10,83,-1:9,83:6,40,83:12,-1:4,83,62:2," +
-"-1:10,83,-1:9,83:8,41,83:10,-1:4,83,62:2,-1:10,83,-1:9,83:3,42,83:15,-1:4,8" +
-"3,62:2,-1:10,83,-1:9,83:11,43,83:7,-1:4,83,62:2,-1:10,83,-1:9,83:8,44,83:10" +
-",-1:4,83,62:2,-1:10,83,-1:9,83:2,49,83:16,-1:4,83,62:2,-1:10,83,-1:9,83:9,7" +
-"1,83:9,-1:4,83,62:2,-1:10,83,-1:9,83,84,83:17,-1:4,83,62:2,-1:10,83,-1:9,83" +
-":14,51,83:4,-1:4,83,62:2,-1:10,83,-1:9,83:12,52,83:6,-1:4,83,62:2,-1:10,83," +
-"-1:9,83:9,72,83:5,73,83:3,-1:4,83,62:2,-1:10,83,-1:9,83:5,74,83:13,-1:4,83," +
-"62:2,-1:10,83,-1:9,83:7,53,83:11,-1:4,83,62:2,-1:10,83,-1:9,83:2,75,83:16,-" +
-"1:4,83,62:2,-1:10,83,-1:9,83:6,77,83:12,-1:4,83,62:2,-1:10,83,-1:9,83:12,79" +
-",83:6,-1:4,83,62:2,-1:10,83,-1:9,83,80,83:17,-1:4,83,62:2,-1:10,83,-1:9,83:" +
-"14,54,83:4,-1:4,83,62:2,-1:10,83,-1:9,83:8,55,83:10,-1:4,83,62:2,-1:10,83,-" +
-"1:9,83:5,56,83:13,-1:4,83,62:2,-1:10,83,-1:9,83:10,81,83:8,-1:4,83,62:2,-1:" +
-"10,83,-1:9,83:6,82,83:12,-1:4,83,62:2,-1:10,83,-1:9,83:11,57,83:7,-1:4,83,6" +
-"2:2,-1:10,83,-1:9,83:11,58,83:7,-1:4,83,62:2,-1:10,83,-1:9,83:6,59,83:12,-1" +
-":4,83,62:2,-1:10,83,-1:9,83:7,60,83:11,-1:4,83,62:2,-1:10,83,-1:9,83:5,78,8" +
-"3:13,-1:4,83,62:2,-1:10,83,-1:9,83:2,76,83:16,-1:4,83,62:2,-1:10,83,-1:9,83" +
-",64,83:17,-1:4,83,62:2,-1:10,83,-1:9,83:5,65,83:13,-1:4,83,62:2,-1:10,83,-1" +
-":9,83:11,66,83:7,-1:4,83,62:2,-1:10,83,-1:9,83:6,67,83:12,-1:4,83,62:2,-1:1" +
-"0,83,-1:9,83:7,68,83:11,-1:4,83,62:2,-1:10,83,-1:9,83:15,69,83:3,-1:4,83,62" +
-":2,-1:10,83,-1:9,83:11,70,83:7,-1:4,83,62:2,-1:10,83,-1:9,83:18,85,-1:4,83," +
-"62:2,-1:10,83,-1:9,83:19,-1:4,83,62:2,-1:10,62,-1:8");
+	private int yy_nxt[][] = unpackFromString(82,47,
+"1,2,119,50,119,122,119,123,119:2,124,119,125,119,126,127,119,128,129,119,3," +
+"4,51,-1,119:2,5,6,7,8,9,10,11,12,13,14,58,130,15,16,17,18,19,20,21,64,51,-1" +
+":48,119,91,119:17,-1:4,119,98:2,-1:10,119,-1:10,49:19,23,56,49,62,49:19,24," +
+"49:3,-1:29,25,-1:43,5,-1:47,26,-1:47,65,-1:47,27,-1:46,28,-1:46,29,-1:3,30," +
+"-1:43,31,-1:2,32,-1:57,21,-1:3,119:19,-1:4,119,98:2,-1:10,119,-1:10,67:20,6" +
+"9,67,-1,67:19,-1,67:3,-1,77:19,39,79,77,81,77:19,81,77:3,-1:43,61,-1:4,119:" +
+"8,99,119:4,22,119:5,-1:4,119,98:2,-1:10,119,-1:10,84:19,92,85,84,81,84:19,4" +
+"0,84:3,-1,83:19,59,86,83,62,83:19,60,83:3,-1,71:8,49:2,71:9,49,73,49,95,71:" +
+"19,95,71:3,-1,119:3,35,119:15,-1:4,119,98:2,-1:10,119,-1:45,33,-1:11,62:19," +
+"52,75,62:21,24,62:3,-1,119:6,36,119:12,-1:4,119,98:2,-1:10,119,-1:10,65:22," +
+"-1,65:19,34,65:3,-1,119:6,37,119:12,-1:4,119,98:2,-1:10,119,-1:10,119:8,38," +
+"119:10,-1:4,119,98:2,-1:10,119,-1:10,71:8,67:2,71:9,67,69,67,95,71:19,95,71" +
+":3,-1,119:6,41,119:12,-1:4,119,98:2,-1:10,119,-1:10,77:19,39,79,77,81,77:19" +
+",40,77:3,-1,119:9,42,119:9,-1:4,119,98:2,-1:10,119,-1:10,83:8,49:2,83:9,23," +
+"56,49,96,83:19,53,83:3,-1,119:6,43,119:12,-1:4,119,98:2,-1:10,119,-1:18,62:" +
+"2,-1:9,62:3,-1:25,119:8,45,119:10,-1:4,119,98:2,-1:10,119,-1:10,77:19,39,79" +
+",77,81,77:19,44,77:3,-1,119:3,46,119:15,-1:4,119,98:2,-1:10,119,-1:10,71:8," +
+"77:2,71:9,39,79,77,95,71:19,55,71:3,-1,119:11,47,119:7,-1:4,119,98:2,-1:10," +
+"119,-1:10,119:8,48,119:10,-1:4,119,98:2,-1:10,119,-1:10,84:19,92,84:2,81,84" +
+":19,44,84:3,-1,95:8,84:2,95:9,92,84:2,95:20,55,95:3,-1,71:8,83:2,71:9,54,89" +
+",83,95,71:19,55,71:3,-1,87:19,94,90,87,62,87:19,60,87:3,-1,95:8,87:2,95:9,9" +
+"3,87:2,95:20,55,95:3,-1,83:19,59,86,83,97,83:19,53,83:3,-1,84:8,87:2,84:9,9" +
+"3,87:2,81,84:19,44,84:3,-1,119:2,57,119:16,-1:4,119,98:2,-1:10,119,-1:10,84" +
+":19,92,84:2,81,84:19,81,84:3,-1,87:19,94,88,87,62,87:19,60,87:3,-1,119:9,10" +
+"7,119:9,-1:4,119,98:2,-1:10,119,-1:10,119,120,119:17,-1:4,119,98:2,-1:10,11" +
+"9,-1:10,119:14,63,119:4,-1:4,119,98:2,-1:10,119,-1:10,119:12,66,119:6,-1:4," +
+"119,98:2,-1:10,119,-1:10,119:9,108,119:5,109,119:3,-1:4,119,98:2,-1:10,119," +
+"-1:10,119:5,110,119:13,-1:4,119,98:2,-1:10,119,-1:10,119:7,68,119:11,-1:4,1" +
+"19,98:2,-1:10,119,-1:10,119:2,111,119:16,-1:4,119,98:2,-1:10,119,-1:10,119:" +
+"6,113,119:12,-1:4,119,98:2,-1:10,119,-1:10,119:12,115,119:6,-1:4,119,98:2,-" +
+"1:10,119,-1:10,119,116,119:17,-1:4,119,98:2,-1:10,119,-1:10,119:14,70,119:4" +
+",-1:4,119,98:2,-1:10,119,-1:10,119:8,72,119:10,-1:4,119,98:2,-1:10,119,-1:1" +
+"0,119:5,74,119:13,-1:4,119,98:2,-1:10,119,-1:10,119:10,117,119:8,-1:4,119,9" +
+"8:2,-1:10,119,-1:10,119:6,118,119:12,-1:4,119,98:2,-1:10,119,-1:10,119:11,7" +
+"6,119:7,-1:4,119,98:2,-1:10,119,-1:10,119:11,78,119:7,-1:4,119,98:2,-1:10,1" +
+"19,-1:10,119:6,80,119:12,-1:4,119,98:2,-1:10,119,-1:10,119:7,82,119:11,-1:4" +
+",119,98:2,-1:10,119,-1:10,119:5,114,119:13,-1:4,119,98:2,-1:10,119,-1:10,11" +
+"9:2,112,119:16,-1:4,119,98:2,-1:10,119,-1:10,119,100,119:17,-1:4,119,98:2,-" +
+"1:10,119,-1:10,119:5,101,119:13,-1:4,119,98:2,-1:10,119,-1:10,119:11,102,11" +
+"9:7,-1:4,119,98:2,-1:10,119,-1:10,119:6,103,119:12,-1:4,119,98:2,-1:10,119," +
+"-1:10,119:7,104,119:11,-1:4,119,98:2,-1:10,119,-1:10,119:15,105,119:3,-1:4," +
+"119,98:2,-1:10,119,-1:10,119:11,106,119:7,-1:4,119,98:2,-1:10,119,-1:10,119" +
+":18,121,-1:4,119,98:2,-1:10,119,-1:10,119:19,-1:4,119,98:2,-1:10,98,-1:9");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -446,7 +498,7 @@ return new Symbol(sym.EOF);
 						break;
 					case 3:
 						{ ErrMsg.fatal(yyline+1, CharNum.num,
-                         "ignoring unterminated string literal: " + yytext());
+                         "ignoring illegal character: " + yytext());
             CharNum.num++;
           }
 					case -4:
@@ -467,7 +519,7 @@ return new Symbol(sym.EOF);
                 CharNum.num += yytext().length();
                 return S;
             }catch(Exception e){
-                ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal: " + yytext());
+                ErrMsg.fatal(yyline+1, CharNum.num, "integer literal too large (using max value)");
                 Symbol S = new Symbol(sym.INTLITERAL,
                              new IntLitTokenVal(yyline+1, CharNum.num, Integer.MAX_VALUE));
                 CharNum.num += yytext().length();
@@ -600,8 +652,8 @@ return new Symbol(sym.EOF);
 						break;
 					case 24:
 						{
-            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring illegal character: " + yytext());
-            CharNum.num += yytext().length();
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal");
+            CharNum.num = 1;
           }
 					case -25:
 						break;
@@ -669,149 +721,148 @@ return new Symbol(sym.EOF);
 					case -34:
 						break;
 					case 34:
-						{ Symbol S = new Symbol(sym.VOID, new TokenVal(yyline+1, CharNum.num));
-            CharNum.num += yytext().length();
-            return S;
-          }
+						{ CharNum.num = 1; }
 					case -35:
 						break;
 					case 35:
-						{ Symbol S = new Symbol(sym.ELSE, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.VOID, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -36:
 						break;
 					case 36:
-						{ Symbol S = new Symbol(sym.TRUE, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.ELSE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -37:
 						break;
 					case 37:
-						{ Symbol S = new Symbol(sym.SCAN, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.TRUE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -38:
 						break;
 					case 38:
-						{ Symbol S = new Symbol(sym.FALSE, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.SCAN, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -39:
 						break;
 					case 39:
-						{ Symbol S = new Symbol(sym.PRINT, new TokenVal(yyline+1, CharNum.num));
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring string literal with bad escaped character");
             CharNum.num += yytext().length();
-            return S;
           }
 					case -40:
 						break;
 					case 40:
-						{ Symbol S = new Symbol(sym.WHILE, new TokenVal(yyline+1, CharNum.num));
-            CharNum.num += yytext().length();
-            return S;
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal with bad escaped character");
+            CharNum.num = 1;
           }
 					case -41:
 						break;
 					case 41:
-						{ Symbol S = new Symbol(sym.RETURN, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.FALSE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -42:
 						break;
 					case 42:
-						{ Symbol S = new Symbol(sym.RECORD, new TokenVal(yyline+1, CharNum.num));
+						{ Symbol S = new Symbol(sym.PRINT, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -43:
 						break;
 					case 43:
-						{ Symbol S = new Symbol(sym.INT, new TokenVal(yyline+1, CharNum.num));
-          CharNum.num += yytext().length();
-          return S;
-        }
+						{ Symbol S = new Symbol(sym.WHILE, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += yytext().length();
+            return S;
+          }
 					case -44:
 						break;
 					case 44:
-						{ Symbol S = new Symbol(sym.BOOL, new TokenVal(yyline+1, CharNum.num));
-          CharNum.num += yytext().length();
-          return S;
-        }
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal with bad escaped character");
+            CharNum.num = 1;
+          }
 					case -45:
 						break;
-					case 46:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+					case 45:
+						{ Symbol S = new Symbol(sym.RETURN, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
 					case -46:
 						break;
-					case 47:
-						{ ErrMsg.fatal(yyline+1, CharNum.num,
-                         "ignoring unterminated string literal: " + yytext());
-            CharNum.num++;
-          }
-					case -47:
-						break;
-					case 49:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+					case 46:
+						{ Symbol S = new Symbol(sym.RECORD, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += yytext().length();
             return S;
           }
+					case -47:
+						break;
+					case 47:
+						{ Symbol S = new Symbol(sym.INT, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += yytext().length();
+          return S;
+        }
 					case -48:
 						break;
-					case 50:
-						{ ErrMsg.fatal(yyline+1, CharNum.num,
-                         "ignoring unterminated string literal: " + yytext());
-            CharNum.num++;
-          }
+					case 48:
+						{ Symbol S = new Symbol(sym.BOOL, new TokenVal(yyline+1, CharNum.num));
+          CharNum.num += yytext().length();
+          return S;
+        }
 					case -49:
 						break;
-					case 51:
+					case 50:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
 					case -50:
 						break;
-					case 52:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+					case 51:
+						{ ErrMsg.fatal(yyline+1, CharNum.num,
+                         "ignoring illegal character: " + yytext());
+            CharNum.num++;
           }
 					case -51:
 						break;
-					case 53:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+					case 52:
+						{
+            String strVal = yytext().equals("\"\"") ? "" : yytext().substring(1, yytext().length() - 1);
+            Symbol S = new Symbol(sym.STRINGLITERAL, new StrLitTokenVal(yyline+1, CharNum.num, strVal));
             CharNum.num += yytext().length();
             return S;
           }
 					case -52:
 						break;
-					case 54:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+					case 53:
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal");
+            CharNum.num = 1;
           }
 					case -53:
 						break;
-					case 55:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+					case 54:
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring string literal with bad escaped character");
             CharNum.num += yytext().length();
-            return S;
           }
 					case -54:
 						break;
-					case 56:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+					case 55:
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal with bad escaped character");
+            CharNum.num = 1;
           }
 					case -55:
 						break;
@@ -823,263 +874,372 @@ return new Symbol(sym.EOF);
 					case -56:
 						break;
 					case 58:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+						{ ErrMsg.fatal(yyline+1, CharNum.num,
+                         "ignoring illegal character: " + yytext());
+            CharNum.num++;
           }
 					case -57:
 						break;
 					case 59:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+						{
+            String strVal = yytext().equals("\"\"") ? "" : yytext().substring(1, yytext().length() - 1);
+            Symbol S = new Symbol(sym.STRINGLITERAL, new StrLitTokenVal(yyline+1, CharNum.num, strVal));
             CharNum.num += yytext().length();
             return S;
           }
 					case -58:
 						break;
 					case 60:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal");
+            CharNum.num = 1;
           }
 					case -59:
 						break;
 					case 61:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal with bad escaped character");
+            CharNum.num = 1;
           }
 					case -60:
-						break;
-					case 62:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -61:
 						break;
 					case 63:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -62:
+					case -61:
 						break;
 					case 64:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
+						{ ErrMsg.fatal(yyline+1, CharNum.num,
+                         "ignoring illegal character: " + yytext());
+            CharNum.num++;
           }
-					case -63:
-						break;
-					case 65:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -64:
+					case -62:
 						break;
 					case 66:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -65:
-						break;
-					case 67:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -66:
+					case -63:
 						break;
 					case 68:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -67:
-						break;
-					case 69:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -68:
+					case -64:
 						break;
 					case 70:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -69:
-						break;
-					case 71:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -70:
+					case -65:
 						break;
 					case 72:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -71:
-						break;
-					case 73:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -72:
+					case -66:
 						break;
 					case 74:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -73:
-						break;
-					case 75:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -74:
+					case -67:
 						break;
 					case 76:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -75:
-						break;
-					case 77:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -76:
+					case -68:
 						break;
 					case 78:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -77:
-						break;
-					case 79:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -78:
+					case -69:
 						break;
 					case 80:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -79:
-						break;
-					case 81:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -80:
+					case -70:
 						break;
 					case 82:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -81:
-						break;
-					case 83:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -82:
-						break;
-					case 84:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -83:
-						break;
-					case 85:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -84:
-						break;
-					case 86:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -85:
-						break;
-					case 87:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -86:
-						break;
-					case 88:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -87:
-						break;
-					case 89:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -88:
-						break;
-					case 90:
-						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext().length();
-            return S;
-          }
-					case -89:
+					case -71:
 						break;
 					case 91:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
-					case -90:
+					case -72:
 						break;
 					case 92:
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring string literal with bad escaped character");
+            CharNum.num += yytext().length();
+          }
+					case -73:
+						break;
+					case 93:
+						{
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring string literal with bad escaped character");
+            CharNum.num += yytext().length();
+          }
+					case -74:
+						break;
+					case 94:
+						{
+            String strVal = yytext().equals("\"\"") ? "" : yytext().substring(1, yytext().length() - 1);
+            Symbol S = new Symbol(sym.STRINGLITERAL, new StrLitTokenVal(yyline+1, CharNum.num, strVal));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -75:
+						break;
+					case 98:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -76:
+						break;
+					case 99:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -77:
+						break;
+					case 100:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -78:
+						break;
+					case 101:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -79:
+						break;
+					case 102:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -80:
+						break;
+					case 103:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -81:
+						break;
+					case 104:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -82:
+						break;
+					case 105:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -83:
+						break;
+					case 106:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -84:
+						break;
+					case 107:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -85:
+						break;
+					case 108:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -86:
+						break;
+					case 109:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -87:
+						break;
+					case 110:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -88:
+						break;
+					case 111:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -89:
+						break;
+					case 112:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -90:
+						break;
+					case 113:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
 					case -91:
 						break;
-					case 93:
+					case 114:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
 					case -92:
 						break;
-					case 94:
+					case 115:
 						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
 					case -93:
+						break;
+					case 116:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -94:
+						break;
+					case 117:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -95:
+						break;
+					case 118:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -96:
+						break;
+					case 119:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -97:
+						break;
+					case 120:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -98:
+						break;
+					case 121:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -99:
+						break;
+					case 122:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -100:
+						break;
+					case 123:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -101:
+						break;
+					case 124:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -102:
+						break;
+					case 125:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -103:
+						break;
+					case 126:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -104:
+						break;
+					case 127:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -105:
+						break;
+					case 128:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -106:
+						break;
+					case 129:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -107:
+						break;
+					case 130:
+						{ Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext().length();
+            return S;
+          }
+					case -108:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

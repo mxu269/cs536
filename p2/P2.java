@@ -19,7 +19,16 @@ public class P2 {
         testUnterminatedStringLiterals();
         CharNum.num = 1;
 
+        testBadStringLiterals();
+        CharNum.num = 1;
+
         testBadInteger();
+        CharNum.num = 1;
+
+        testLegalStringLiterals();
+        CharNum.num = 1;
+
+        testComments();
         CharNum.num = 1;
     }
 
@@ -197,8 +206,28 @@ public class P2 {
 
         Symbol token = scanner.next_token();
         while (token.sym != sym.EOF) {
+            // System.out.println("type: " + token);
+            token = scanner.next_token();
+        } // end while
+    }
+
+    private static void testBadStringLiterals() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("badStringLiterals.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
             //This should not print
-            System.out.println("type: " + token + ", " + ((StrLitTokenVal)token.value).strVal);
+            System.out.println("type: " + token);
             token = scanner.next_token();
         } // end while
     }
@@ -219,11 +248,55 @@ public class P2 {
 
         Symbol token = scanner.next_token();
         while (token.sym != sym.EOF) {
-            //This should not print
             System.out.println("type: " + token + ", " + ((IntLitTokenVal)token.value).intVal);
             token = scanner.next_token();
         } // end while
     }
 
+    private static void testLegalStringLiterals() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        PrintWriter outFile = null;
+        try {
+            inFile = new FileReader("legalStringLiterals.in");
+            outFile = new PrintWriter(new FileWriter("legalStringLiterals.out"));
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        } catch (IOException ex) {
+            System.err.println("allTokens.out cannot be opened.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            outFile.println("\"" + ((StrLitTokenVal)token.value).strVal + "\"");
+            token = scanner.next_token();
+        } // end while
+        outFile.close();
+    }
+
+    private static void testComments() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("comments.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            //This should not print
+            System.out.println("Comments not ignored");
+            token = scanner.next_token();
+        } // end while
+    }
 
 }

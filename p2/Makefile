@@ -38,6 +38,7 @@ ErrMsg.class: ErrMsg.java
 test: clean P2.class
 	java -cp $(CP) P2 
 	diff allTokens.in allTokens.out
+	diff legalStringLiterals.in legalStringLiterals.out
 
 ###
 # clean up
@@ -47,4 +48,4 @@ clean:
 	rm -f *~ *.class brevis.jlex.java
 
 cleantest:
-	rm -f allTokens.out
+	rm -f *.out
