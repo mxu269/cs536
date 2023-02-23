@@ -16,6 +16,11 @@ public class P2 {
         CharNum.num = 1;
     
         // ADD CALLS TO OTHER TEST METHODS HERE
+        testUnterminatedStringLiterals();
+        CharNum.num = 1;
+
+        testBadInteger();
+        CharNum.num = 1;
     }
 
     /**
@@ -90,7 +95,7 @@ public class P2 {
                 outFile.println(((IntLitTokenVal)token.value).intVal);
                 break;
             case sym.STRINGLITERAL: 
-                outFile.println(((StrLitTokenVal)token.value).strVal);
+                outFile.println("\"" + ((StrLitTokenVal)token.value).strVal + "\"");
                 break;    
             case sym.LCURLY:
                 outFile.println("{");
@@ -175,4 +180,50 @@ public class P2 {
         } // end while
         outFile.close();
     }
+
+
+    private static void testUnterminatedStringLiterals() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("unterminatedStringLiterals.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            //This should not print
+            System.out.println("type: " + token + ", " + ((StrLitTokenVal)token.value).strVal);
+            token = scanner.next_token();
+        } // end while
+    }
+
+
+    private static void testBadInteger() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("badInterger.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            //This should not print
+            System.out.println("type: " + token + ", " + ((IntLitTokenVal)token.value).intVal);
+            token = scanner.next_token();
+        } // end while
+    }
+
+
 }

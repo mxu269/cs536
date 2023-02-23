@@ -59,7 +59,11 @@ class CharNum {
 DIGIT=        [0-9]
 WHITESPACE=   [\040\t]
 LETTER =      [a-z|A-Z]
+ESCAPED_CHAR = [nt\'\"\?\\]
+NEW_LINE = [\n]
+LEGAL_CHAR = [^\n\"\\]
 BACKSLASH = [\\]
+QUOTE =     [\"]
 
 
 
@@ -135,8 +139,14 @@ return new Symbol(sym.EOF);
             return S;
           }
 
-({LETTER}|"_")({DIGIT}|{LETTER}|"_")*  { Symbol S = new Symbol(sym.ID,
-                             new IdTokenVal(yyline+1, CharNum.num, yytext()));
+{QUOTE}(\\{ESCAPED_CHAR}|{LEGAL_CHAR})*{QUOTE} {
+            String strVal = yytext().equals("\"\"") ? "" : yytext().substring(1, yytext().length() - 1);
+            Symbol S = new Symbol(sym.STRINGLITERAL, new StrLitTokenVal(yyline+1, CharNum.num, strVal));
+            CharNum.num += yytext().length();
+            return S;
+          }
+
+({LETTER}|"_")({DIGIT}|{LETTER}|"_")*  { Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
             CharNum.num += yytext().length();
             return S;
           }
@@ -244,13 +254,21 @@ return new Symbol(sym.EOF);
             return S;
           }
 
-{DIGIT}+  { // NOTE: the following computation of the integer value does
-            //       NOT check for overflow. This must be changed.
-            int val = Integer.parseInt(yytext());
-            Symbol S = new Symbol(sym.INTLITERAL,
+{DIGIT}+  { 
+            try{
+                int val = Integer.parseInt(yytext());
+                Symbol S = new Symbol(sym.INTLITERAL,
                              new IntLitTokenVal(yyline+1, CharNum.num, val));
-            CharNum.num += yytext().length();
-            return S;
+                CharNum.num += yytext().length();
+                return S;
+            }catch(Exception e){
+                ErrMsg.fatal(yyline+1, CharNum.num, "ignoring unterminated string literal: " + yytext());
+                Symbol S = new Symbol(sym.INTLITERAL,
+                             new IntLitTokenVal(yyline+1, CharNum.num, Integer.MAX_VALUE));
+                CharNum.num += yytext().length();
+                return S;
+            }
+            
           }
 
 "*"       { Symbol S = new Symbol(sym.TIMES, new TokenVal(yyline+1, CharNum.num));
@@ -282,9 +300,12 @@ return new Symbol(sym.EOF);
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
 
-
+{QUOTE}(\\{ESCAPED_CHAR}|{LEGAL_CHAR})*{NEW_LINE} {
+            ErrMsg.fatal(yyline+1, CharNum.num, "ignoring illegal character: " + yytext());
+            CharNum.num += yytext().length();
+          }
         
 .         { ErrMsg.fatal(yyline+1, CharNum.num,
-                         "ignoring illegal character: " + yytext());
+                         "ignoring unterminated string literal: " + yytext());
             CharNum.num++;
           }

@@ -38,6 +38,6 @@ print
 \=
 while
 >=
-thisIsAString
+"thisIsAString"
 false
 record
