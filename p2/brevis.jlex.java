@@ -636,7 +636,7 @@ return new Symbol(sym.EOF);
 						break;
 					case 22:
 						{ Symbol S = new Symbol(sym.IF, new TokenVal(yyline+1, CharNum.num));
-            CharNum.num++;
+            CharNum.num += 2;
             return S;
           }
 					case -23:

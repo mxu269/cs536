@@ -33,6 +33,9 @@ public class P2 {
 
         testSampleProgram();
         CharNum.num = 1;
+
+        testCharNum();
+        CharNum.num = 1;
     }
 
     /**
@@ -321,6 +324,27 @@ public class P2 {
             token = scanner.next_token();
         } // end while
         System.out.println("");
+
+    }
+
+    private static void testCharNum() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("charNum.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            token = scanner.next_token();
+        } // end while
+        System.out.println("CharNum: " + CharNum.num);
     }
 
 }

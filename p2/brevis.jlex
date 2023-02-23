@@ -104,7 +104,7 @@ return new Symbol(sym.EOF);
           }
 
 "if"       { Symbol S = new Symbol(sym.IF, new TokenVal(yyline+1, CharNum.num));
-            CharNum.num++;
+            CharNum.num += 2;
             return S;
           }
 
