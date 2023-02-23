@@ -30,6 +30,9 @@ public class P2 {
 
         testComments();
         CharNum.num = 1;
+
+        testSampleProgram();
+        CharNum.num = 1;
     }
 
     /**
@@ -297,6 +300,27 @@ public class P2 {
             System.out.println("Comments not ignored");
             token = scanner.next_token();
         } // end while
+    }
+
+    private static void testSampleProgram() throws IOException {
+        // open input and output files
+        FileReader inFile = null;
+        try {
+            inFile = new FileReader("sampleProgram.in");
+        } catch (FileNotFoundException ex) {
+            System.err.println("File allTokens.in not found.");
+            System.exit(-1);
+        }
+
+        // create and call the scanner
+        Yylex scanner = new Yylex(inFile);
+
+        Symbol token = scanner.next_token();
+        while (token.sym != sym.EOF) {
+            System.out.print(token.sym + " ");
+            token = scanner.next_token();
+        } // end while
+        System.out.println("");
     }
 
 }

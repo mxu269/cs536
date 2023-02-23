@@ -1,0 +1,7 @@
+integer a = 100;
+integer b = 150;
+if (a < b) {
+    print("a less than b");
+}else{
+    print("a is not less than b");
+}
