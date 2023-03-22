@@ -86,6 +86,14 @@ non terminal List<FormalDeclNode>   formals;
 non terminal FnBodyNode       fnBody;
 non terminal List<DeclNode>   varDeclList;
 non terminal List<StmtNode>   stmtList;
+non terminal ExpNode          exp;
+non terminal ExpNode          term;
+non terminal ExpNode          loc;
+non terminal AssignExpNode    assignExp;
+non terminal StmtNode         stmt;
+non terminal CallExpNode      fncall;
+
+
 /* NOTE: Add precedence and associativity declarations here */
 
 
@@ -182,9 +190,79 @@ fnBody          ::= LCURLY varDeclList:v stmtList:s RCURLY
 varDeclList     ::= /* epsilon */
                 {: RESULT = new LinkedList<DeclNode>();
                 :}
+                |   varDeclList:vl varDecl:v
+                {:  vl.add(v);
+                    RESULT = vl;
+                :}
                 ;
 
 stmtList        ::= /* epsilon */
                 {: RESULT = new LinkedList<StmtNode>();
+                :}
+                |   stmtList:sl stmt:s
+                {:  sl.add(s);
+                    RESULT = sl;
+                :}
+                ;
+
+exp             ::= term:t
+                {: RESULT = t; 
+                :}
+                ;
+
+term            ::= loc:l
+                {: RESULT = l;
+                :}
+                ;
+
+loc             ::= id:i
+                {: RESULT = i;
+                :}
+                ;
+
+assignExp       ::= loc:l ASSIGN exp:e
+                {: RESULT = new AssignExpNode(l, e);
+                :}
+                ;
+
+stmt            ::= assignExp:a SEMICOLON
+                {: RESULT = new AssignStmtNode(a);
+                :}
+                |   loc:l PLUSPLUS SEMICOLON
+                {:  RESULT = new PostIncStmtNode(l);
+                :}
+                |   loc:l MINUSMINUS SEMICOLON
+                {:  RESULT = new PostDecStmtNode(l);
+                :}
+                |   IF LPAREN exp:e RPAREN LCURLY varDeclList:v stmtList:s RCURLY
+                {:  DeclListNode vn = new DeclListNode(v);
+                    StmtListNode sn = new StmtListNode(s);
+                    RESULT = new IfStmtNode(e, vn, sn);
+                :}
+                |   IF LPAREN exp:e RPAREN LCURLY varDeclList:v stmtList:s RCURLY ELSE LCURLY varDeclList:ve stmtList:se RCURLY
+                {:  DeclListNode vn = new DeclListNode(v);
+                    StmtListNode sn = new StmtListNode(s);
+                    DeclListNode ven = new DeclListNode(ve);
+                    StmtListNode sen = new StmtListNode(se);
+                    RESULT = new IfElseStmtNode(e, vn, sn, ven, sen);
+                :}
+                |   WHILE LPAREN exp:e RPAREN LCURLY varDeclList:v stmtList:s RCURLY
+                {:  DeclListNode vn = new DeclListNode(v);
+                    StmtListNode sn = new StmtListNode(s);
+                    RESULT = new WhileStmtNode(e, vn, sn);
+                :}
+                |   SCAN READ loc:l SEMICOLON
+                {:  RESULT = new ReadStmtNode(l);
+                :}
+                |   PRINT WRITE exp:e SEMICOLON
+                {:  RESULT = new WriteStmtNode(e);
+                :}
+                |   fncall:f SEMICOLON
+                {:  RESULT = new CallStmtNode(f);
+                :}
+                ;
+
+fncall          ::= id:i LPAREN RPAREN
+                {:  RESULT = new CallExpNode(i);
                 :}
                 ;

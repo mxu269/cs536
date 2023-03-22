@@ -6,3 +6,28 @@ record Point (
  integer x;
  integer y;
 );
+integer myFunc() {
+}
+void myFunc() {
+ foo = bar;
+ myVar = yourVar;
+ myVar++;
+ myVar--;
+ if (status) {
+  integer myInt;
+  myInt++;
+ }
+ if (isTrue) {
+  boolean happy;
+  happy = happy;
+ } else {
+  sad = sad;
+  boolean sad;
+ }
+ while (condition) {
+  myVar++;
+ }
+ scan -> userInput;
+ print <- stuffToPrint;
+ myFunc();
+}
