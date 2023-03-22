@@ -277,6 +277,13 @@ class RecordDeclNode extends DeclNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
+        p.print("record ");
+        myId.unparse(p, indent);
+        p.println(" (");
+        indent++;
+        myDeclList.unparse(p, indent);
+        indent--;
+        p.println(");");
     }
 
     // two children
@@ -305,6 +312,7 @@ class IntNode extends TypeNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
+        p.print("integer");
     }
 }
 
@@ -313,6 +321,7 @@ class VoidNode extends TypeNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
+        p.print("void");
     }
 }
 

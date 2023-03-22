@@ -79,8 +79,13 @@ non terminal DeclNode         decl;
 non terminal VarDeclNode      varDecl;
 non terminal TypeNode         type;
 non terminal IdNode           id;
- 
- 
+non terminal RecordDeclNode   recordDecl;
+non terminal List<DeclNode>   recordBody;
+non terminal FnDeclNode       fnDecl;
+non terminal List<FormalDeclNode>   formals;
+non terminal FnBodyNode       fnBody;
+non terminal List<DeclNode>   varDeclList;
+non terminal List<StmtNode>   stmtList;
 /* NOTE: Add precedence and associativity declarations here */
 
 
@@ -108,6 +113,12 @@ declList        ::= declList:dl decl:d
 decl            ::= varDecl:v
                 {: RESULT = v;
                 :}
+                |   recordDecl:r
+                {:  RESULT = r;
+                :}
+                |   fnDecl:f
+                {:  RESULT = f;
+                :}
                 ;
 
 varDecl         ::= type:t id:i SEMICOLON
@@ -118,10 +129,62 @@ varDecl         ::= type:t id:i SEMICOLON
 type            ::= BOOL
                 {: RESULT = new BoolNode();
                 :}
+                |   INT
+                {: RESULT = new IntNode();
+                :}
+                |   VOID
+                {: RESULT = new VoidNode();
+                :}
                 ;
 
 id              ::= ID:i
                 {: RESULT = new IdNode(i.lineNum, i.charNum, i.idVal);
                 :}
                 ;
+
+recordBody      ::= recordBody:r varDecl:v
+                {:
+                    r.add(v);
+                    RESULT = r;
+                :}
+
+                |   varDecl:v
+                {:  List<DeclNode> s = new LinkedList<>();
+                    s.add(v);
+                    RESULT = s;
+                :}
+                ;
 				
+recordDecl      ::= RECORD id:i LPAREN recordBody:b RPAREN SEMICOLON
+                {:  DeclListNode n = new DeclListNode(b);
+                    RESULT = new RecordDeclNode(i, n);
+                :}
+                ;
+
+fnDecl          ::= type:t id:i formals:f fnBody:b
+                {:  FormalsListNode n = new FormalsListNode(f);
+                    RESULT = new FnDeclNode(t, i, n, b);
+                :}
+                ;
+
+formals         ::= LPAREN RPAREN
+                {: RESULT = new LinkedList<FormalDeclNode>();
+                :}
+                ;
+
+fnBody          ::= LCURLY varDeclList:v stmtList:s RCURLY
+                {:  DeclListNode vn = new DeclListNode(v);
+                    StmtListNode sn = new StmtListNode(s);
+                    RESULT = new FnBodyNode(vn, sn);
+                :}
+                ;
+
+varDeclList     ::= /* epsilon */
+                {: RESULT = new LinkedList<DeclNode>();
+                :}
+                ;
+
+stmtList        ::= /* epsilon */
+                {: RESULT = new LinkedList<StmtNode>();
+                :}
+                ;

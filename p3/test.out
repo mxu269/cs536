@@ -1,0 +1,8 @@
+boolean a;
+boolean b;
+integer myInt;
+void voidVat;
+record Point (
+ integer x;
+ integer y;
+);
