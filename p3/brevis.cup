@@ -92,9 +92,17 @@ non terminal ExpNode          loc;
 non terminal AssignExpNode    assignExp;
 non terminal StmtNode         stmt;
 non terminal CallExpNode      fncall;
+non terminal List<ExpNode>    actualList;
 
 
 /* NOTE: Add precedence and associativity declarations here */
+
+precedence left TIMES, DIVIDE;
+precedence left PLUS, MINUS;
+precedence nonassoc EQUALS, NOTEQUALS, LESS, LESSEQ, GREATER, GREATEREQ;
+precedence left AND;
+precedence left OR;
+precedence right ASSIGN;
 
 
 start with program;
@@ -208,10 +216,73 @@ stmtList        ::= /* epsilon */
 exp             ::= term:t
                 {: RESULT = t; 
                 :}
+                |   assignExp:a
+                {: RESULT = a;
+                :}
+                |   exp:e1 PLUS exp:e2
+                {: RESULT = new PlusNode(e1, e2);
+                :}
+                |   exp:e1 MINUS exp:e2
+                {: RESULT = new MinusNode(e1, e2);
+                :}
+                |   exp:e1 TIMES exp:e2
+                {: RESULT = new TimesNode(e1, e2);
+                :}
+                |   exp:e1 DIVIDE exp:e2
+                {: RESULT = new DivideNode(e1, e2);
+                :}
+                |   exp:e1 EQUALS exp:e2
+                {: RESULT = new EqualsNode(e1, e2);
+                :}
+                |   exp:e1 NOTEQUALS exp:e2
+                {: RESULT = new NotEqualsNode(e1, e2);
+                :}
+                |   exp:e1 LESS exp:e2
+                {: RESULT = new LessNode(e1, e2);
+                :}
+                |   exp:e1 LESSEQ exp:e2
+                {: RESULT = new LessEqNode(e1, e2);
+                :}
+                |   exp:e1 GREATER exp:e2
+                {: RESULT = new GreaterNode(e1, e2);
+                :}
+                |   exp:e1 GREATEREQ exp:e2
+                {: RESULT = new GreaterEqNode(e1, e2);
+                :}
+                |   exp:e1 AND exp:e2
+                {: RESULT = new AndNode(e1, e2);
+                :}
+                |   exp:e1 OR exp:e2
+                {: RESULT = new OrNode(e1, e2);
+                :}
+                |   NOT exp:e
+                {:  RESULT = new NotNode(e);
+                :}
+                |   MINUS exp:e
+                {:  RESULT = new UnaryMinusNode(e);
+                :}
                 ;
 
 term            ::= loc:l
                 {: RESULT = l;
+                :}
+                |   TRUE:i
+                {:  RESULT = new TrueNode(i.lineNum, i.charNum);
+                :}
+                |   FALSE:i
+                {:  RESULT = new FalseNode(i.lineNum, i.charNum);
+                :}
+                |   INTLITERAL:i
+                {: RESULT = new IntLitNode(i.lineNum, i.charNum, i.intVal);
+                :}
+                |   STRINGLITERAL:i
+                {:  RESULT = new StringLitNode(i.lineNum, i.charNum, i.strVal);
+                :}
+                |   LPAREN exp:e RPAREN
+                {:  RESULT = e;
+                :}
+                | fncall:f
+                {:  RESULT = f;
                 :}
                 ;
 
@@ -260,9 +331,30 @@ stmt            ::= assignExp:a SEMICOLON
                 |   fncall:f SEMICOLON
                 {:  RESULT = new CallStmtNode(f);
                 :}
+                |   RETURN exp:e SEMICOLON
+                {:  RESULT = new ReturnStmtNode(e);
+                :}
+                |   RETURN SEMICOLON
+                {:  RESULT = new ReturnStmtNode(null);
+                :}
                 ;
 
 fncall          ::= id:i LPAREN RPAREN
                 {:  RESULT = new CallExpNode(i);
+                :}
+                |   id:i LPAREN actualList:a RPAREN
+                {:  ExpListNode an = new ExpListNode(a);
+                    RESULT = new CallExpNode(i, an);
+                :}
+                ;
+
+actualList      ::= exp:e
+                {: List<ExpNode> s = new LinkedList<>();
+                    s.add(e);
+                    RESULT = s; 
+                :}
+                |   actualList:a COMMA exp:e
+                {:  a.add(e);
+                    RESULT = a;
                 :}
                 ;
