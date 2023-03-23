@@ -1,0 +1,82 @@
+boolean a;
+boolean b;
+integer myInt;
+void voidVat;
+record Point (
+ integer x;
+ integer y;
+);
+record Point myPoint;
+integer myFunc() {
+}
+void myFunc() {
+ foo = bar;
+ foo = 5;
+ myVar = yourVar;
+ myVar++;
+ myVar--;
+ if (status) {
+  integer myInt;
+  myInt++;
+ }
+ if (isTrue) {
+  boolean happy;
+  happy = happy;
+ } else {
+  sad = sad;
+  boolean sad;
+ }
+ while (condition) {
+  myVar++;
+ }
+ scan -> userInput;
+ print <- stuffToPrint;
+ myFunc();
+ myFunc(arg1, arg2, arg3);
+ return val;
+ return;
+}
+void anotherFunc() {
+ return myVar = otherVar;
+ var1 = var2 = var3 = var4;
+ return a + b;
+ return a - b;
+ return a * b;
+ return a / b;
+ return a == b;
+ return a \= b;
+ return a < b;
+ return a > b;
+ return a <= b;
+ return a >= b;
+ return a && b;
+ return a || b;
+ return \a;
+ return -a;
+}
+void funfun() {
+ print <- ""Please print this"";
+ return apple.banana;
+ apple.color = red;
+}
+void func(boolean p3, integer p2, boolean p1) {
+ a = p1.apple;
+ b = p1.banana;
+}
+void math() {
+ x = 4 + 3;
+ x = 4 + 3 * 5 - y;
+}
+void func4() {
+ if (b == -1) {
+  x = 4 + 3 * 5 - y;
+ }
+ if (b == -1) {
+  x = 4 + 3 * 5 - y;
+  while (c) {
+   y = y * 2 + x;
+  }
+ } else {
+  x = 0;
+ }
+}

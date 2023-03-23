@@ -7,6 +7,7 @@ record Point myPoint;
 integer myFunc(){}
 void myFunc(){
     foo = bar;
+    foo = 5;
     myVar = yourVar;
     myVar++;
     myVar--;
@@ -63,12 +64,11 @@ void func(boolean p1, integer p2, boolean p3){
 
 void math(){
     x = 4+3;
-    //x = 4+3;
-    //x = 4+3*5-y;
+    x = 4+3*5-y;
 }
 
-//void func4(){
-  //  if (b == -1) { x = 4+3*5-y; }
-    //if (b == -1) { x = 4+3*5-y; while (c) { y = y*2+x; } } else { x = 0; }
-//}
+void func4(){
+    if (b == -1) { x = 4+3*5-y; }
+    if (b == -1) { x = 4+3*5-y; while (c) { y = y*2+x; } } else { x = 0; }
+}
 
