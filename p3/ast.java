@@ -214,6 +214,9 @@ class FormalsListNode extends ASTnode {
         try {
             while (it.hasNext()) {
                 ((FormalDeclNode) it.next()).unparse(p, indent);
+                if (it.hasNext()) {
+                    p.print(", ");
+                }
             }
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in FormalsListNode.print");
@@ -309,6 +312,9 @@ class FormalDeclNode extends DeclNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
+        myType.unparse(p, 0);
+        p.print(" ");
+        myId.unparse(p, 0);
     }
 
     // two children
@@ -377,6 +383,8 @@ class RecordNode extends TypeNode {
     }
 
     public void unparse(PrintWriter p, int indent) {
+        p.print("record ");
+        myId.unparse(p, 0);
     }
 
     // one child
@@ -681,6 +689,9 @@ class DotAccessExpNode extends ExpNode {
 
     // **** unparse ****
     public void unparse(PrintWriter p, int indent) {
+        myLoc.unparse(p, 0);
+        p.print(".");
+        myId.unparse(p, 0);
     }
 
     // two children
