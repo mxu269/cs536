@@ -10,6 +10,8 @@ record Point myPoint;
 integer myFunc() {
 }
 void myFunc() {
+ integer myInt;
+ record Point myPoint;
  foo = bar;
  foo = 5;
  myVar = yourVar;
@@ -39,20 +41,20 @@ void myFunc() {
 void anotherFunc() {
  return myVar = otherVar;
  var1 = var2 = var3 = var4;
- return a + b;
- return a - b;
- return a * b;
- return a / b;
- return a == b;
- return a \= b;
- return a < b;
- return a > b;
- return a <= b;
- return a >= b;
- return a && b;
- return a || b;
+ return (a + b);
+ return (a - b);
+ return (a * b);
+ return (a / b);
+ return (a == b);
+ return (a \= b);
+ return (a < b);
+ return (a > b);
+ return (a <= b);
+ return (a >= b);
+ return (a && b);
+ return (a || b);
  return \a;
- return -a;
+ return (-a);
 }
 void funfun() {
  print <- ""Please print this"";
@@ -64,19 +66,27 @@ void func(boolean p3, integer p2, boolean p1) {
  b = p1.banana;
 }
 void math() {
- x = 4 + 3;
- x = 4 + 3 * 5 - y;
+ x = (4 + 3);
+ x = ((4 + (3 * 5)) - y);
 }
 void func4() {
- if (b == -1) {
-  x = 4 + 3 * 5 - y;
+ if ((b == (-1))) {
+  x = ((4 + (3 * 5)) - y);
  }
- if (b == -1) {
-  x = 4 + 3 * 5 - y;
+ if ((b == (-1))) {
+  x = ((4 + (3 * 5)) - y);
   while (c) {
-   y = y * 2 + x;
+   y = ((y * 2) + x);
   }
  } else {
   x = 0;
+ }
+}
+void func5() {
+ if (((true && fasle) || (true && true))) {
+ }
+ if ((((a == b) && (b <= 3)) || true)) {
+ }
+ if (a = b = c) {
  }
 }
