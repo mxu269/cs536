@@ -1389,8 +1389,14 @@ class WriteStmtNode extends StmtNode {
     private Type myType;
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp.codeGen();
+        if (myType.isStringType()){
+            Codegen.generate("li", Codegen.V0, 4);
+        } else {
+            Codegen.generate("li", Codegen.V0, 1);
+        }
+        Codegen.genPop(Codegen.A0);
+        Codegen.generate("syscall");
     }
 }
 
@@ -1503,6 +1509,7 @@ abstract class ExpNode extends ASTnode {
     public void nameAnalysis(SymTab symTab) { }
         
     abstract public Type typeCheck();
+    abstract public void codeGen();
     abstract public int lineNum();
     abstract public int charNum();
 }
@@ -1540,6 +1547,11 @@ class TrueNode extends ExpNode {
 
     private int myLineNum;
     private int myCharNum;
+    @Override
+    public void codeGen() {
+        Codegen.generate("li", Codegen.T0, Codegen.TRUE);
+        Codegen.genPush(Codegen.T0);
+    }
 }
 
 class FalseNode extends ExpNode {
@@ -1575,6 +1587,11 @@ class FalseNode extends ExpNode {
 
     private int myLineNum;
     private int myCharNum;
+    @Override
+    public void codeGen() {
+        Codegen.generate("li", Codegen.T0, Codegen.FALSE);
+        Codegen.genPush(Codegen.T0);
+    }
 }
 
 class IdNode extends ExpNode {
@@ -1695,6 +1712,11 @@ class IdNode extends ExpNode {
     private int myCharNum;
     private String myStrVal;
     private Sym mySym;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class IntLitNode extends ExpNode {
@@ -1732,6 +1754,11 @@ class IntLitNode extends ExpNode {
     private int myLineNum;
     private int myCharNum;
     private int myIntVal;
+    @Override
+    public void codeGen() {
+        Codegen.generate("li", Codegen.T0, myIntVal);
+        Codegen.genPush(Codegen.T0);
+    }
 }
 
 class StringLitNode extends ExpNode {
@@ -1769,6 +1796,20 @@ class StringLitNode extends ExpNode {
     private int myLineNum;
     private int myCharNum;
     private String myStrVal;
+    private static HashMap<String, String> hm = new HashMap<>();
+    @Override
+    public void codeGen() {
+        if (!hm.containsKey(myStrVal)){
+            String label = Codegen.nextLabel();
+            Codegen.generate(".data");
+            Codegen.generateLabeled(label, ".asciiz " + myStrVal , "");
+            hm.put(myStrVal, label);
+        }
+        Codegen.generate(".text");
+        Codegen.generate("la", Codegen.T0, hm.get(myStrVal));
+        Codegen.genPush(Codegen.T0);
+
+    }
 }
 
 class DotAccessExpNode extends ExpNode {
@@ -1920,6 +1961,11 @@ class DotAccessExpNode extends ExpNode {
     private IdNode myId;
     private Sym mySym;          // link to Sym for record type
     private boolean badAccess;  // to prevent multiple, cascading errors
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class AssignExpNode extends ExpNode {
@@ -2000,6 +2046,11 @@ class AssignExpNode extends ExpNode {
     // two children
     private ExpNode myLhs;
     private ExpNode myExp;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class CallExpNode extends ExpNode {
@@ -2078,6 +2129,11 @@ class CallExpNode extends ExpNode {
     // two children
     private IdNode myId;
     private ExpListNode myExpList;  // possibly null
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 abstract class UnaryExpNode extends ExpNode {
@@ -2184,6 +2240,12 @@ class UnaryMinusNode extends UnaryExpNode {
         myExp.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class NotNode extends UnaryExpNode {
@@ -2215,6 +2277,12 @@ class NotNode extends UnaryExpNode {
         p.print("(\\");
         myExp.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2384,6 +2452,12 @@ class PlusNode extends ArithmeticExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class MinusNode extends ArithmeticExpNode {
@@ -2397,6 +2471,12 @@ class MinusNode extends ArithmeticExpNode {
         p.print(" - ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2412,6 +2492,12 @@ class TimesNode extends ArithmeticExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class DivideNode extends ArithmeticExpNode {
@@ -2425,6 +2511,12 @@ class DivideNode extends ArithmeticExpNode {
         p.print(" / ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2440,6 +2532,12 @@ class EqualsNode extends EqualityExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class NotEqualsNode extends EqualityExpNode {
@@ -2453,6 +2551,12 @@ class NotEqualsNode extends EqualityExpNode {
         p.print(" \\= ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2468,6 +2572,12 @@ class LessNode extends RelationalExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class LessEqNode extends RelationalExpNode {
@@ -2481,6 +2591,12 @@ class LessEqNode extends RelationalExpNode {
         p.print(" <= ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2496,6 +2612,12 @@ class GreaterNode extends RelationalExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class GreaterEqNode extends RelationalExpNode {
@@ -2509,6 +2631,12 @@ class GreaterEqNode extends RelationalExpNode {
         p.print(" >= ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }
 
@@ -2524,6 +2652,12 @@ class AndNode extends LogicalExpNode {
         myExp2.unparse(p, 0);
         p.print(")");
     }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class OrNode extends LogicalExpNode {
@@ -2537,5 +2671,11 @@ class OrNode extends LogicalExpNode {
         p.print(" || ");
         myExp2.unparse(p, 0);
         p.print(")");
+    }
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
     }
 }

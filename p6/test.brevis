@@ -3,6 +3,13 @@ integer b;
 boolean t;
 boolean f;
 
-void main(){
-
+void main() {
+    print <- "Hello world!";
+    print <- "\n";
+    print <- 1675437;
+    print <- "\n";
+    print <- false;
+    print <- "\n";
+    print <- true;
+    print <- "\n";
 }
