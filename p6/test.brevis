@@ -3,7 +3,7 @@ integer b;
 boolean t;
 boolean f;
 
-void main1() {
+void test_write() {
     print <- "Hello world!";
     print <- "\n";
     print <- 1675437;
@@ -14,7 +14,7 @@ void main1() {
     print <- "\n";
 }
 
-void main(){
+void test_assign(){
     integer a;
     integer anotherA;
     a = 12;
@@ -31,5 +31,24 @@ void main(){
     print <- "\n";
     t = true;
     print <- t;
+    print <- "\n";
+}
+
+void main(){
+    integer a;
+    boolean b;
+    a = -12;
+    print <- a;
+    print <- "\n";
+    b = false;
+    print <- \b;
+    print <- "\n";
+    print <- 5 + -8;
+    print <- "\n";
+    print <- 1024 - 768;
+    print <- "\n";
+    print <- 2 * 2 * 2 * 2 * (5-1);
+    print <- "\n";
+    print <- 65 / 32;
     print <- "\n";
 }

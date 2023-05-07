@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.CodingErrorAction;
 import java.util.*;
 
 // **********************************************************************
@@ -2267,8 +2268,11 @@ class UnaryMinusNode extends UnaryExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("li", Codegen.T1, 0);
+        Codegen.generate("sub", Codegen.T0, Codegen.T1, Codegen.T0);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2305,8 +2309,14 @@ class NotNode extends UnaryExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        // push (value + 1) % 2
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("addi", Codegen.T0, Codegen.T0, 1);
+        Codegen.generate("li", Codegen.T1, 2);
+        Codegen.generate("div", Codegen.T0, Codegen.T1);
+        Codegen.generate("mfhi", Codegen.T0);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2479,8 +2489,12 @@ class PlusNode extends ArithmeticExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp1.codeGen();
+        myExp2.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("add", Codegen.T0, Codegen.T0, Codegen.T1);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2499,8 +2513,12 @@ class MinusNode extends ArithmeticExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp1.codeGen();
+        myExp2.codeGen();
+        Codegen.genPop(Codegen.T0); 
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("sub", Codegen.T0, Codegen.T1, Codegen.T0);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2519,8 +2537,13 @@ class TimesNode extends ArithmeticExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp1.codeGen();
+        myExp2.codeGen();
+        Codegen.genPop(Codegen.T0); 
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("mult", Codegen.T1, Codegen.T0);
+        Codegen.generate("mflo", Codegen.T0);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2539,8 +2562,13 @@ class DivideNode extends ArithmeticExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp1.codeGen();
+        myExp2.codeGen();
+        Codegen.genPop(Codegen.T0); 
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("div", Codegen.T1, Codegen.T0);
+        Codegen.generate("mflo", Codegen.T0);
+        Codegen.genPush(Codegen.T0);
     }
 }
 
