@@ -1,0 +1,8 @@
+integer a;
+integer b;
+boolean t;
+boolean f;
+
+void main(){
+
+}

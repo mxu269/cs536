@@ -151,6 +151,7 @@ class ProgramNode extends ASTnode {
      ***/
     public void codeGen() {
         // TODO: complete this
+        myDeclList.codeGen();
     }
 
     public void unparse(PrintWriter p, int indent) {
@@ -169,6 +170,12 @@ class DeclListNode extends ASTnode {
     }
 
     /***
+
+    Implement the code generation methods in a similar way as you did with the name analysis and type check methods, such as top-down from the root ProgramNode.
+
+    Test your implementation after each change. Instead of testing your entire implementation at once, it is helpful to implement one feature at a time and test your work by augmenting your test.brevis or by writing a brevis program that includes the new feature you want to test. (Note that you are not submitting any test files for this assignment, but you should write your tests as if you did have to submit one — it will likely make things a lot easier.)
+
+
      * nameAnalysis
      * Given a symbol table symTab, process all of the decls in the list.
      ***/
@@ -210,6 +217,12 @@ class DeclListNode extends ASTnode {
         } catch (NoSuchElementException ex) {
             System.err.println("unexpected NoSuchElementException in DeclListNode.print");
             System.exit(-1);
+        }
+    }
+
+    public void codeGen(){
+        for (DeclNode node : myDecls) {
+            node.codeGen();
         }
     }
 
@@ -399,8 +412,11 @@ abstract class DeclNode extends ASTnode {
      ***/
     abstract public Sym nameAnalysis(SymTab symTab);
 
+    abstract public void codeGen();
+
     // default version of typeCheck for non-function decls
     public void typeCheck() { }
+
 }
 
 class VarDeclNode extends DeclNode {
@@ -520,6 +536,14 @@ class VarDeclNode extends DeclNode {
     private int mySize;  // use value NON_RECORD if this is not a record type
 
     public static int NON_RECORD = -1;
+
+    @Override
+    public void codeGen() {
+        if (myId.sym().isGlobal()){
+            Codegen.generate(".data");
+            Codegen.generateLabeled("_" + myId.name(), ".word", "", "0");
+        }    
+    }
 }
 
 class FnDeclNode extends DeclNode {
@@ -637,6 +661,21 @@ class FnDeclNode extends DeclNode {
     private IdNode myId;
     private FormalsListNode myFormalsList;
     private FnBodyNode myBody;
+    @Override
+    public void codeGen() {
+        // Preamble
+        Codegen.generate(".text");
+        if (myId.isMain()){
+            Codegen.generate(".globl", "main");
+            Codegen.genLabel("main", "METHOD ENTRY");
+        }else {
+            Codegen.genLabel("_" + myId.name(), "METHOD ENTRY");
+        }
+        // Prologue
+        Codegen.genPush(Codegen.RA);
+        Codegen.genPush(Codegen.FP);
+        
+    }
 }
 
 class FormalDeclNode extends DeclNode {
@@ -707,6 +746,11 @@ class FormalDeclNode extends DeclNode {
     // two children
     private TypeNode myType;
     private IdNode myId;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class RecordDeclNode extends DeclNode {
@@ -777,6 +821,11 @@ class RecordDeclNode extends DeclNode {
     // two children
     private IdNode myId;
     private DeclListNode myDeclList;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 // **********************************************************************
