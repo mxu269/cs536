@@ -676,7 +676,7 @@ class FnDeclNode extends DeclNode {
         // Preamble
         Codegen.generate(".text");
         if (myId.isMain()){
-            Codegen.generate(".globl", "main");
+            Codegen.generate(".globl main");
             Codegen.genLabel("main", "METHOD ENTRY");
         }else {
             Codegen.genLabel("_" + myId.name(), "METHOD ENTRY");
@@ -694,10 +694,11 @@ class FnDeclNode extends DeclNode {
         Codegen.generate("move", Codegen.T0, Codegen.FP);
         Codegen.generateIndexed("lw", Codegen.FP, Codegen.FP, -4);
         Codegen.generate("move", Codegen.SP, Codegen.T0);
-        Codegen.generate("jr", Codegen.RA);
         if (myId.isMain()){
             Codegen.generate("li", Codegen.V0, "10");
             Codegen.generate("syscall");
+        } else {
+            Codegen.generate("jr", Codegen.RA);
         }
     }
 }

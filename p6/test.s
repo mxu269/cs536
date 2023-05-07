@@ -20,6 +20,5 @@ _main_exit:		# FUNCTION EXIT
 	move  $t0, $fp
 	lw    $fp, -4($fp)
 	move  $sp, $t0
-	jr    $ra
 	li    $v0, 10
 	syscall
