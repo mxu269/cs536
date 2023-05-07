@@ -691,12 +691,12 @@ class FnDeclNode extends DeclNode {
         // Epilogue
         Codegen.genLabel("_" + myId.name() + "_exit", "FUNCTION EXIT");
         Codegen.generateIndexed("lw", Codegen.RA, Codegen.FP, 0);
-        Codegen.generate("move", Codegen.T0, Codegen.FP);
-        Codegen.generateIndexed("lw", Codegen.FP, Codegen.FP, -4);
-        Codegen.generate("move", Codegen.SP, Codegen.T0);
+        Codegen.generateWithComment("move", "save control link", Codegen.T0, Codegen.FP);
+        Codegen.generateIndexed("lw", Codegen.FP, Codegen.FP, -4, "restore FP");
+        Codegen.generateWithComment("move", "restore SP", Codegen.SP, Codegen.T0);
         if (myId.isMain()){
-            Codegen.generate("li", Codegen.V0, "10");
-            Codegen.generate("syscall");
+            Codegen.generateWithComment("li", "load exit code for syscall", Codegen.V0, "10");
+            Codegen.generateWithComment("syscall", "only do this for main");
         } else {
             Codegen.generate("jr", Codegen.RA);
         }

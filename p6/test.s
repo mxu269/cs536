@@ -17,8 +17,8 @@ main:		# METHOD ENTRY
 	subu  $sp, $sp, 0
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
-	move  $t0, $fp
-	lw    $fp, -4($fp)
-	move  $sp, $t0
-	li    $v0, 10
-	syscall
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	li    $v0, 10		# load exit code for syscall
+	syscall		# only do this for main
