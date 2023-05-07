@@ -1390,12 +1390,12 @@ class WriteStmtNode extends StmtNode {
     @Override
     public void codeGen() {
         myExp.codeGen();
+        Codegen.genPop(Codegen.A0);
         if (myType.isStringType()){
             Codegen.generate("li", Codegen.V0, 4);
         } else {
             Codegen.generate("li", Codegen.V0, 1);
         }
-        Codegen.genPop(Codegen.A0);
         Codegen.generate("syscall");
     }
 }

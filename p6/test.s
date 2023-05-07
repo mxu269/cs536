@@ -21,9 +21,9 @@ main:		# METHOD ENTRY
 	la    $t0, .L0
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 	.data
 .L1:	.asciiz "\n"
@@ -31,54 +31,54 @@ main:		# METHOD ENTRY
 	la    $t0, .L1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 	li    $t0, 1675437
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 1
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 1
 	syscall
 	.text
 	la    $t0, .L1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 	li    $t0, 0
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 1
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 1
 	syscall
 	.text
 	la    $t0, .L1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 	li    $t0, 1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 1
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 1
 	syscall
 	.text
 	la    $t0, .L1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	li    $v0, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
