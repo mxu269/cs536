@@ -261,6 +261,12 @@ class StmtListNode extends ASTnode {
         }      
     }
 
+    public void codeGen(){
+        for(StmtNode node : myStmts) {
+            node.codeGen();
+        }
+    }
+
     // list of children (StmtNodes)
     private List<StmtNode> myStmts;
 }
@@ -394,6 +400,10 @@ class FnBodyNode extends ASTnode {
     public void unparse(PrintWriter p, int indent) {
         myDeclList.unparse(p, indent);
         myStmtList.unparse(p, indent);
+    }
+
+    public void codeGen(){
+        myStmtList.codeGen();
     }
 
     // two children
@@ -674,7 +684,21 @@ class FnDeclNode extends DeclNode {
         // Prologue
         Codegen.genPush(Codegen.RA);
         Codegen.genPush(Codegen.FP);
-        
+        Codegen.generate("addu", Codegen.FP, Codegen.SP, "8");
+        Codegen.generate("subu", Codegen.SP, Codegen.SP, myId.localsSize());
+        // Function Body
+        myBody.codeGen();
+        // Epilogue
+        Codegen.genLabel("_" + myId.name() + "_exit", "FUNCTION EXIT");
+        Codegen.generateIndexed("lw", Codegen.RA, Codegen.FP, 0);
+        Codegen.generate("move", Codegen.T0, Codegen.FP);
+        Codegen.generateIndexed("lw", Codegen.FP, Codegen.FP, -4);
+        Codegen.generate("move", Codegen.SP, Codegen.T0);
+        Codegen.generate("jr", Codegen.RA);
+        if (myId.isMain()){
+            Codegen.generate("li", Codegen.V0, "10");
+            Codegen.generate("syscall");
+        }
     }
 }
 
@@ -917,6 +941,7 @@ class RecordNode extends TypeNode {
 abstract class StmtNode extends ASTnode {
     abstract public void nameAnalysis(SymTab symTab);
     abstract public void typeCheck(Type retType);
+    abstract public void codeGen();
 }
 
 class AssignStmtNode extends StmtNode {
@@ -947,6 +972,12 @@ class AssignStmtNode extends StmtNode {
 
     // one child
     private AssignExpNode myAssign;
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class PostIncStmtNode extends StmtNode {
@@ -982,6 +1013,12 @@ class PostIncStmtNode extends StmtNode {
 
     // one child
     private ExpNode myExp;
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class PostDecStmtNode extends StmtNode {
@@ -1017,6 +1054,12 @@ class PostDecStmtNode extends StmtNode {
 
     // one child
     private ExpNode myExp;
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class IfStmtNode extends StmtNode {
@@ -1077,6 +1120,11 @@ class IfStmtNode extends StmtNode {
     private ExpNode myExp;
     private DeclListNode myDeclList;
     private StmtListNode myStmtList;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class IfElseStmtNode extends StmtNode {
@@ -1163,6 +1211,11 @@ class IfElseStmtNode extends StmtNode {
     private StmtListNode myThenStmtList;
     private StmtListNode myElseStmtList;
     private DeclListNode myElseDeclList;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class WhileStmtNode extends StmtNode {
@@ -1223,6 +1276,11 @@ class WhileStmtNode extends StmtNode {
     private ExpNode myExp;
     private DeclListNode myDeclList;
     private StmtListNode myStmtList;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class ReadStmtNode extends StmtNode {
@@ -1269,6 +1327,12 @@ class ReadStmtNode extends StmtNode {
 
     // one child (actually can only be an IdNode or an ArrayExpNode)
     private ExpNode myExp;
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class WriteStmtNode extends StmtNode {
@@ -1322,6 +1386,11 @@ class WriteStmtNode extends StmtNode {
     // two children
     private ExpNode myExp;
     private Type myType;
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class CallStmtNode extends StmtNode {
@@ -1352,6 +1421,12 @@ class CallStmtNode extends StmtNode {
 
     // one child
     private CallExpNode myCall;
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 class ReturnStmtNode extends StmtNode {
@@ -1408,6 +1483,12 @@ class ReturnStmtNode extends StmtNode {
 
     // one child
     private ExpNode myExp; // possibly null
+
+    @Override
+    public void codeGen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+    }
 }
 
 // **********************************************************************
