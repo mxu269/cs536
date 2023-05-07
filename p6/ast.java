@@ -552,7 +552,9 @@ class VarDeclNode extends DeclNode {
         if (myId.sym().isGlobal()){
             Codegen.generate(".data");
             Codegen.generateLabeled("_" + myId.name(), ".word", "", "0");
-        }    
+        } else {
+            Codegen.genPush("0");
+        }   
     }
 }
 
@@ -976,8 +978,8 @@ class AssignStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myAssign.codeGen();
+        Codegen.genPop(Codegen.T1);
     }
 }
 
@@ -1714,8 +1716,25 @@ class IdNode extends ExpNode {
     private Sym mySym;
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        if (mySym.isGlobal()){
+            Codegen.generate("lw", Codegen.T0, "_" + myStrVal);
+        } else {
+            Codegen.generateIndexed("lw", Codegen.T0, Codegen.FP, mySym.getOffset());
+        }
+        Codegen.genPush(Codegen.T0);
+    }
+
+    public void genJumpAndLink(){
+
+    }
+
+    public void genAddr(){
+        if (mySym.isGlobal()){
+            Codegen.generate("la", Codegen.T0, "_" + myStrVal);
+        } else {
+            Codegen.generateIndexed("la", Codegen.T0, Codegen.FP, mySym.getOffset());
+        }
+        Codegen.genPush(Codegen.T0);
     }
 }
 
@@ -2048,8 +2067,13 @@ class AssignExpNode extends ExpNode {
     private ExpNode myExp;
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        ((IdNode)myLhs).genAddr();
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T1);
+        Codegen.genPop(Codegen.T0);
+        Codegen.generateIndexed("sw", Codegen.T1, Codegen.T0, 0);
+        Codegen.genPush(Codegen.T1);
+
     }
 }
 

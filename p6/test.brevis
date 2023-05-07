@@ -3,7 +3,7 @@ integer b;
 boolean t;
 boolean f;
 
-void main() {
+void main1() {
     print <- "Hello world!";
     print <- "\n";
     print <- 1675437;
@@ -11,5 +11,25 @@ void main() {
     print <- false;
     print <- "\n";
     print <- true;
+    print <- "\n";
+}
+
+void main(){
+    integer a;
+    integer anotherA;
+    a = 12;
+    anotherA = a;
+    print <- a;
+    print <- "\n";
+    print <- anotherA;
+    print <- "\n";
+    b = 13;
+    print <- b;
+    print <- "\n";
+    anotherA = b;
+    print <- anotherA;
+    print <- "\n";
+    t = true;
+    print <- t;
     print <- "\n";
 }
