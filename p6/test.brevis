@@ -111,9 +111,16 @@ void main(){
     integer a;
     a = 6;
     if (a <= 10) {
-        print <- "input less than equals 10\n";
+        print <- "a less than equals 10\n";
     }
-    print <- "input is: ";
+    print <- "a is: ";
     print <- a;
     print <- "\n";
+    a = 64;
+    print <- a;
+    if (a <= 100){
+        print <- " less than equals 100\n";
+    } else {
+        print <- " grater than 100\n";
+    }
 }

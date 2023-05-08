@@ -1274,7 +1274,7 @@ main:		# METHOD ENTRY
 	li    $t1, 1
 	bne   $t0, $t1, .L59
 	.data
-.L60:	.asciiz "input less than equals 10\n"
+.L60:	.asciiz "a less than equals 10\n"
 	.text
 	la    $t0, .L60
 	sw    $t0, 0($sp)	# PUSH
@@ -1285,7 +1285,7 @@ main:		# METHOD ENTRY
 	syscall
 .L59:
 	.data
-.L61:	.asciiz "input is: "
+.L61:	.asciiz "a is: "
 	.text
 	la    $t0, .L61
 	sw    $t0, 0($sp)	# PUSH
@@ -1309,6 +1309,76 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	li    $v0, 4
 	syscall
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 64
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $t1, 0($t0)
+	sw    $t1, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 100
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	ble   $t0, $t1, .L62
+.L63:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L64
+.L62:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L64:
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t1, 1
+	bne   $t0, $t1, .L65
+	.data
+.L67:	.asciiz " less than equals 100\n"
+	.text
+	la    $t0, .L67
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	j     .L66
+.L65:
+	.data
+.L68:	.asciiz " grater than 100\n"
+	.text
+	la    $t0, .L68
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+.L66:
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
 	move  $t0, $fp		# save control link

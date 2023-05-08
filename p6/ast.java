@@ -1247,8 +1247,17 @@ class IfElseStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("li", Codegen.T1, 1);
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("bne", Codegen.T0, Codegen.T1, falseLab);
+        myThenStmtList.codeGen();
+        Codegen.generate("j", doneLab);
+        Codegen.genLabel(falseLab);
+        myElseStmtList.codeGen();
+        Codegen.genLabel(doneLab);
     }
 }
 
