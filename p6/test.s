@@ -1122,8 +1122,7 @@ _test_logical_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_stmt:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -1210,6 +1209,105 @@ main:		# METHOD ENTRY
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+_test_stmt_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 4
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 6
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $t1, 0($t0)
+	sw    $t1, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 10
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	ble   $t0, $t1, .L56
+.L57:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L58
+.L56:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L58:
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t1, 1
+	bne   $t0, $t1, .L59
+	.data
+.L60:	.asciiz "input less than equals 10\n"
+	.text
+	la    $t0, .L60
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+.L59:
+	.data
+.L61:	.asciiz "input is: "
+	.text
+	la    $t0, .L61
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
 	syscall
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)

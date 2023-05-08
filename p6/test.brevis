@@ -94,7 +94,7 @@ void test_logical(){
     print <- "\n";
 }
 
-void main(){
+void test_stmt(){
     integer a;
     a = 2;
     a++;
@@ -103,6 +103,17 @@ void main(){
     print <- a;
     print <- "\n";
     scan -> a;
+    print <- a;
+    print <- "\n";
+}
+
+void main(){
+    integer a;
+    a = 6;
+    if (a <= 10) {
+        print <- "input less than equals 10\n";
+    }
+    print <- "input is: ";
     print <- a;
     print <- "\n";
 }

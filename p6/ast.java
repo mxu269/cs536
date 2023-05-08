@@ -1150,8 +1150,13 @@ class IfStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("li", Codegen.T1, 1);
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("bne", Codegen.T0, Codegen.T1, doneLab);
+        myStmtList.codeGen();
+        Codegen.genLabel(doneLab);
     }
 }
 
