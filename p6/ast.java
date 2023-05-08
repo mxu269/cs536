@@ -2416,51 +2416,9 @@ abstract class LogicalExpNode extends BinaryExpNode {
 }
 
 abstract class EqualityExpNode extends BinaryExpNode {
-    public static final String pushTrueLabel = "_" + Codegen.nextLabel()+ "true";
-    public static final String pushFalseLabel = "_" + Codegen.nextLabel() + "false";
-    public static final String savePCLabel = "_" + Codegen.nextLabel() + "savepc";
     public EqualityExpNode(ExpNode exp1, ExpNode exp2) {
         super(exp1, exp2);
     }
-
-    static {
-        genPushTrue();
-        genPushFalse();
-        genSavePC();
-    }
-
-    private static void genPushTrue() {
-        // Preamble
-        Codegen.generate(".text");
-        Codegen.genLabel(pushTrueLabel, "METHOD ENTRY");
-        Codegen.genPop(Codegen.T1); // save saved ra in T1
-        //push 1 to stack
-        Codegen.generate("li", Codegen.T0, 1);
-        Codegen.genPush(Codegen.T0);
-        Codegen.genPush(Codegen.T1); // push saved ra to stack
-        Codegen.generate("addu", Codegen.RA, Codegen.RA, 8);
-        Codegen.generate("jr", Codegen.RA);
-
-    }
-
-    private static void genPushFalse() {
-        // Preamble
-        Codegen.generate(".text");
-        Codegen.genLabel(pushFalseLabel, "METHOD ENTRY");
-        Codegen.genPop(Codegen.T1); // save saved ra in T1
-        //push 0 to stack
-        Codegen.generate("li", Codegen.T0, 0);
-        Codegen.genPush(Codegen.T0);
-        Codegen.genPush(Codegen.T1); // push saved ra to stack
-        Codegen.generate("addu", Codegen.RA, Codegen.RA, 8);
-        Codegen.generate("jr", Codegen.RA);
-
-    }
-
-    private static void genSavePC() {
-        Codegen.generateLabeled(savePCLabel, "jr", "", Codegen.RA);
-    }
-
     /***
      * typeCheck
      ***/
@@ -2657,11 +2615,18 @@ class EqualsNode extends EqualityExpNode {
         myExp2.codeGen();
         Codegen.genPop(Codegen.T1);
         Codegen.genPop(Codegen.T0);
-        Codegen.genPush(Codegen.RA); //save RA
-        Codegen.generate("jal", savePCLabel);
-        Codegen.generate("beq", Codegen.T0, Codegen.T1, pushTrueLabel);
-        Codegen.generate("bne", Codegen.T0, Codegen.T1, pushFalseLabel);
-        Codegen.genPop(Codegen.RA); // restore RA
+        String trueLab = Codegen.nextLabel();
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("beq", Codegen.T0, Codegen.T1, trueLab);
+        Codegen.genLabel(falseLab);
+        Codegen.generate("li", Codegen.T0, 0);
+        Codegen.genPush(Codegen.T0);
+        Codegen.generate("j", doneLab);
+        Codegen.genLabel(trueLab);
+        Codegen.generate("li", Codegen.T0, 1);
+        Codegen.genPush(Codegen.T0);
+        Codegen.genLabel(doneLab);
     }
 }
 
@@ -2684,11 +2649,18 @@ class NotEqualsNode extends EqualityExpNode {
         myExp2.codeGen();
         Codegen.genPop(Codegen.T1);
         Codegen.genPop(Codegen.T0);
-        Codegen.genPush(Codegen.RA); //save RA
-        Codegen.generate("jal", savePCLabel);
-        Codegen.generate("bne", Codegen.T0, Codegen.T1, pushTrueLabel);
-        Codegen.generate("beq", Codegen.T0, Codegen.T1, pushFalseLabel);
-        Codegen.genPop(Codegen.RA); // restore RA
+        String trueLab = Codegen.nextLabel();
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("bne", Codegen.T0, Codegen.T1, trueLab);
+        Codegen.genLabel(falseLab);
+        Codegen.generate("li", Codegen.T0, 0);
+        Codegen.genPush(Codegen.T0);
+        Codegen.generate("j", doneLab);
+        Codegen.genLabel(trueLab);
+        Codegen.generate("li", Codegen.T0, 1);
+        Codegen.genPush(Codegen.T0);
+        Codegen.genLabel(doneLab);
     }
 }
 
