@@ -34,7 +34,7 @@ void test_assign(){
     print <- "\n";
 }
 
-void main(){
+void test_arithmitic(){
     integer a;
     boolean b;
     a = -12;
@@ -51,4 +51,19 @@ void main(){
     print <- "\n";
     print <- 65 / 32;
     print <- "\n";
+}
+
+void test_equality(){
+    print <- 3 == 3;
+    print <- "\n";
+    print <- "hello" == "world";
+    print <- "\n";
+    print <- 3 \= (3*5);
+    print <- "\n";
+    print <- "hello" \= "hello";
+    print <- "\n";
+}
+
+void main(){
+    
 }

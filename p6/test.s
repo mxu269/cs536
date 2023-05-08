@@ -1,3 +1,26 @@
+	.text
+_.L0true:		# METHOD ENTRY
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $t1, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $ra, $ra, 8
+	jr    $ra
+	.text
+_.L1false:		# METHOD ENTRY
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $t1, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $ra, $ra, 8
+	jr    $ra
+_.L2savepc:	jr    $ra
 	.data
 _a:	.word 0
 	.data
@@ -15,9 +38,9 @@ _test_write:		# METHOD ENTRY
 	addu  $fp, $sp, 8
 	subu  $sp, $sp, 0
 	.data
-.L0:	.asciiz "Hello world!"
+.L3:	.asciiz "Hello world!"
 	.text
-	la    $t0, .L0
+	la    $t0, .L3
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -25,9 +48,9 @@ _test_write:		# METHOD ENTRY
 	li    $v0, 4
 	syscall
 	.data
-.L1:	.asciiz "\n"
+.L4:	.asciiz "\n"
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -42,7 +65,7 @@ _test_write:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -57,7 +80,7 @@ _test_write:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -72,7 +95,7 @@ _test_write:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -131,7 +154,7 @@ _test_assign:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -146,7 +169,7 @@ _test_assign:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -176,7 +199,7 @@ _test_assign:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -206,7 +229,7 @@ _test_assign:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -236,7 +259,7 @@ _test_assign:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -250,8 +273,7 @@ _test_assign_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_arithmitic:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -287,7 +309,7 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -325,7 +347,7 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -356,7 +378,7 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -381,7 +403,7 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -450,7 +472,7 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
@@ -476,7 +498,157 @@ main:		# METHOD ENTRY
 	li    $v0, 1
 	syscall
 	.text
-	la    $t0, .L1
+	la    $t0, .L4
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+_test_arithmitic_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _.L2savepc
+	beq   $t0, $t1, _.L0true
+	bne   $t0, $t1, _.L1false
+	lw    $ra, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L4
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	.data
+.L5:	.asciiz "hello"
+	.text
+	la    $t0, .L5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	.data
+.L6:	.asciiz "world"
+	.text
+	la    $t0, .L6
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _.L2savepc
+	beq   $t0, $t1, _.L0true
+	bne   $t0, $t1, _.L1false
+	lw    $ra, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L4
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	mult  $t1, $t0
+	mflo  $t0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _.L2savepc
+	bne   $t0, $t1, _.L0true
+	beq   $t0, $t1, _.L1false
+	lw    $ra, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L4
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	.text
+	la    $t0, .L5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	.text
+	la    $t0, .L5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _.L2savepc
+	bne   $t0, $t1, _.L0true
+	beq   $t0, $t1, _.L1false
+	lw    $ra, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L4
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
