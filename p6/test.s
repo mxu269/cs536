@@ -489,8 +489,7 @@ _test_arithmitic_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_equality:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -648,6 +647,285 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	li    $v0, 4
 	syscall
+_test_equality_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	blt   $t0, $t1, .L16
+.L17:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L18
+.L16:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L18:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 100
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 2
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	blt   $t0, $t1, .L19
+.L20:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L21
+.L19:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L21:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	ble   $t0, $t1, .L22
+.L23:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L24
+.L22:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L24:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 3
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 2
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	ble   $t0, $t1, .L25
+.L26:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L27
+.L25:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L27:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 2
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	bgt   $t0, $t1, .L28
+.L29:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L30
+.L28:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L30:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 2
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	bgt   $t0, $t1, .L31
+.L32:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L33
+.L31:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L33:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	bge   $t0, $t1, .L34
+.L35:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L36
+.L34:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L36:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	li    $t0, 4
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 5
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	bge   $t0, $t1, .L37
+.L38:
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	j     .L39
+.L37:
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+.L39:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
 	move  $t0, $fp		# save control link
@@ -655,17 +933,3 @@ _main_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	li    $v0, 10		# load exit code for syscall
 	syscall		# only do this for main
-	.text
-_main1:		# METHOD ENTRY
-	sw    $ra, 0($sp)	# PUSH
-	subu  $sp, $sp, 4
-	sw    $fp, 0($sp)	# PUSH
-	subu  $sp, $sp, 4
-	addu  $fp, $sp, 8
-	subu  $sp, $sp, 0
-_main1_exit:		# FUNCTION EXIT
-	lw    $ra, 0($fp)
-	move  $t0, $fp		# save control link
-	lw    $fp, -4($fp)	# restore FP
-	move  $sp, $t0		# restore SP
-	jr    $ra

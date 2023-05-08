@@ -2463,6 +2463,8 @@ abstract class EqualityExpNode extends BinaryExpNode {
 
         return retType;
     }
+    
+
 }
 
 abstract class RelationalExpNode extends BinaryExpNode {
@@ -2495,6 +2497,26 @@ abstract class RelationalExpNode extends BinaryExpNode {
         }
 
         return retType;
+    }
+
+
+    protected void codeGen(String opCode) {
+        myExp1.codeGen();
+        myExp2.codeGen();
+        Codegen.genPop(Codegen.T1);
+        Codegen.genPop(Codegen.T0);
+        String trueLab = Codegen.nextLabel();
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate(opCode, Codegen.T0, Codegen.T1, trueLab);
+        Codegen.genLabel(falseLab);
+        Codegen.generate("li", Codegen.T0, 0);
+        Codegen.genPush(Codegen.T0);
+        Codegen.generate("j", doneLab);
+        Codegen.genLabel(trueLab);
+        Codegen.generate("li", Codegen.T0, 1);
+        Codegen.genPush(Codegen.T0);
+        Codegen.genLabel(doneLab);    
     }
 }
 
@@ -2679,9 +2701,10 @@ class LessNode extends RelationalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        codeGen("blt");
     }
+
+    
 }
 
 class LessEqNode extends RelationalExpNode {
@@ -2699,8 +2722,7 @@ class LessEqNode extends RelationalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        codeGen("ble");    
     }
 }
 
@@ -2719,8 +2741,7 @@ class GreaterNode extends RelationalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        codeGen("bgt");    
     }
 }
 
@@ -2739,8 +2760,7 @@ class GreaterEqNode extends RelationalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        codeGen("bge");
     }
 }
 
