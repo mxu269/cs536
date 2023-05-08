@@ -1196,6 +1196,21 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	li    $v0, 4
 	syscall
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 5
+	syscall
+	sw    $v0, 0($t1)
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
 	move  $t0, $fp		# save control link

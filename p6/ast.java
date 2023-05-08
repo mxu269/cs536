@@ -1360,8 +1360,11 @@ class ReadStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        ((IdNode)myExp).genAddr();
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("li", Codegen.V0, 5);
+        Codegen.generate("syscall");
+        Codegen.generateIndexed("sw", Codegen.V0, Codegen.T1, 0);
     }
 }
 

@@ -102,4 +102,7 @@ void main(){
     a--;
     print <- a;
     print <- "\n";
+    scan -> a;
+    print <- a;
+    print <- "\n";
 }
