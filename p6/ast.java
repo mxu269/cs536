@@ -2779,8 +2779,20 @@ class AndNode extends LogicalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp2.codeGen();
+        myExp1.codeGen();
+        Codegen.genPop(Codegen.T0); // eval of exp1
+        Codegen.generate("li", Codegen.T1, 1);
+        // String trueLab = Codegen.nextLabel();
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("beq", Codegen.T0, Codegen.T1, doneLab);
+        Codegen.genLabel(falseLab);
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("li", Codegen.T0, 0);
+        Codegen.genPush(Codegen.T0);
+        Codegen.generate("j", doneLab);
+        Codegen.genLabel(doneLab);
     }
 }
 
@@ -2799,7 +2811,26 @@ class OrNode extends LogicalExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myExp2.codeGen();
+        myExp1.codeGen();
+        Codegen.genPop(Codegen.T0); // eval of exp1
+        Codegen.generate("li", Codegen.T1, 1);
+        String true1Lab = Codegen.nextLabel();
+        String true2Lab = Codegen.nextLabel();
+        String falseLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.generate("beq", Codegen.T0, Codegen.T1, true1Lab);
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("beq", Codegen.T0, Codegen.T1, true2Lab);
+        Codegen.generate("li", Codegen.T1, 0);
+        Codegen.genPush(Codegen.T1);
+        Codegen.generate("j", doneLab);
+        Codegen.genPush(Codegen.T1);
+        Codegen.genLabel(true1Lab);
+        Codegen.genPop(Codegen.T0);
+        Codegen.genLabel(true2Lab);
+        Codegen.genPop(Codegen.T0);
+        Codegen.genPush(Codegen.T1);
+        Codegen.genLabel(doneLab);
     }
 }
