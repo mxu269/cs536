@@ -83,7 +83,7 @@ void test_relational(){
     print <- "\n";
 }
 
-void main(){
+void test_logical(){
     print <- true && true;
     print <- "\n";
     print <- true && 2 > 5;
@@ -91,5 +91,15 @@ void main(){
     print <- true || false;
     print <- "\n";
     print <- false || 2 > 5;
+    print <- "\n";
+}
+
+void main(){
+    integer a;
+    a = 2;
+    a++;
+    a++;
+    a--;
+    print <- a;
     print <- "\n";
 }

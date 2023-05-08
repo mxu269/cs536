@@ -932,8 +932,7 @@ _test_relational_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_logical:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -1034,7 +1033,7 @@ main:		# METHOD ENTRY
 	li    $t1, 0
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	j     .L50
+	j     .L49
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 .L47:
@@ -1045,7 +1044,7 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-.L50:
+.L49:
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 	li    $v0, 1
@@ -1068,42 +1067,123 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
-	bgt   $t0, $t1, .L51
-.L52:
+	bgt   $t0, $t1, .L50
+.L51:
 	li    $t0, 0
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	j     .L53
-.L51:
+	j     .L52
+.L50:
 	li    $t0, 1
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-.L53:
+.L52:
 	li    $t0, 0
 	sw    $t0, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 	li    $t1, 1
-	beq   $t0, $t1, .L54
+	beq   $t0, $t1, .L53
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
-	beq   $t0, $t1, .L55
+	beq   $t0, $t1, .L54
 	li    $t1, 0
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-	j     .L57
+	j     .L55
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
+.L53:
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
 .L54:
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
-.L55:
-	lw    $t0, 4($sp)	# POP
-	addu  $sp, $sp, 4
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
-.L57:
+.L55:
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+_test_logical_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 4
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 2
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	sw    $t1, 0($t0)
+	sw    $t1, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	addi  $t0, $t0, 1
+	sw    $t0, 0($t1)
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	addi  $t0, $t0, 1
+	sw    $t0, 0($t1)
+	la    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	addi  $t0, $t0, -1
+	sw    $t0, 0($t1)
+	lw    $t0, -8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
 	lw    $a0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 	li    $v0, 1

@@ -1033,8 +1033,13 @@ class PostIncStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        IdNode me = (IdNode)myExp;
+        me.genAddr();
+        me.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("addi", Codegen.T0, Codegen.T0, 1);
+        Codegen.generateIndexed("sw", Codegen.T0, Codegen.T1, 0);
     }
 }
 
@@ -1074,8 +1079,13 @@ class PostDecStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        IdNode me = (IdNode)myExp;
+        me.genAddr();
+        me.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.genPop(Codegen.T1);
+        Codegen.generate("addi", Codegen.T0, Codegen.T0, -1);
+        Codegen.generateIndexed("sw", Codegen.T0, Codegen.T1, 0);
     }
 }
 
@@ -2817,7 +2827,7 @@ class OrNode extends LogicalExpNode {
         Codegen.generate("li", Codegen.T1, 1);
         String true1Lab = Codegen.nextLabel();
         String true2Lab = Codegen.nextLabel();
-        String falseLab = Codegen.nextLabel();
+        // String falseLab = Codegen.nextLabel();
         String doneLab = Codegen.nextLabel();
         Codegen.generate("beq", Codegen.T0, Codegen.T1, true1Lab);
         Codegen.genPop(Codegen.T0);
