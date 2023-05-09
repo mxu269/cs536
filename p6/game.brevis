@@ -1,0 +1,16 @@
+void main(){
+    integer secretNum;
+    integer guess;
+    secretNum = 569;
+    print <- "Guess number from 1 - 1000: ";
+    scan -> guess;
+    while (guess \= secretNum){
+        if (guess < secretNum){
+            print <- "Too small, guess again: ";
+        } else {
+            print <- "Too big, guess again: ";
+        }
+        scan -> guess;
+    }
+    print <- "Yay! You've guessed the correct number.\n";
+}

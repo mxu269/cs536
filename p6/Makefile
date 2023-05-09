@@ -62,6 +62,8 @@ test: P6.class
 nest: P6.class
 	java -cp $(CP) P6 nest.brevis nest.s
 
+game: P6.class
+	java -cp $(CP) P6 game.brevis game.s
 ###
 # clean
 ###
