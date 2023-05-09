@@ -335,6 +335,12 @@ class ExpListNode extends ASTnode {
         }
     }
 
+    public void codeGen() {
+        for (ExpNode exp : myExps) {
+            exp.codeGen();
+        }
+    }
+
     // list of children (ExpNodes)
     private List<ExpNode> myExps;
 }
@@ -1486,8 +1492,8 @@ class CallStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        myCall.codeGen();
+        Codegen.genPop(Codegen.T1);
     }
 }
 
@@ -1548,8 +1554,10 @@ class ReturnStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        if (myExp != null){
+            myExp.codeGen();
+            Codegen.genPop(Codegen.V0);
+        }
     }
 }
 
@@ -1784,7 +1792,7 @@ class IdNode extends ExpNode {
     }
 
     public void genJumpAndLink() {
-
+        Codegen.generate("jal", "_" + myStrVal);
     }
 
     public void genAddr() {
@@ -2040,7 +2048,7 @@ class DotAccessExpNode extends ExpNode {
     @Override
     public void codeGen() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        throw new UnsupportedOperationException("DotAccessExpNode codeGen not supported");
     }
 }
 
@@ -2216,8 +2224,16 @@ class CallExpNode extends ExpNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        if (myExpList != null){
+            myExpList.codeGen();
+        }
+        myId.genJumpAndLink();
+        if (myExpList != null){
+            int offset = myExpList.size() * 4;
+            Codegen.generate("li", Codegen.T0, offset);
+            Codegen.generate("addu", Codegen.SP, Codegen.SP, Codegen.T0);
+        }
+        Codegen.genPush(Codegen.V0);
     }
 }
 

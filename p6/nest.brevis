@@ -1,0 +1,8 @@
+integer calculate_plus(integer num1, integer num2){
+    return num1 + num2;
+}
+
+void main(){
+    print <- calculate_plus(5, 5);
+    //print <- "\n";
+}

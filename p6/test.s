@@ -1195,29 +1195,6 @@ _test_stmt:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	li    $v0, 4
 	syscall
-	la    $t0, -8($fp)
-	sw    $t0, 0($sp)	# PUSH
-	subu  $sp, $sp, 4
-	lw    $t1, 4($sp)	# POP
-	addu  $sp, $sp, 4
-	li    $v0, 5
-	syscall
-	sw    $v0, 0($t1)
-	lw    $t0, -8($fp)
-	sw    $t0, 0($sp)	# PUSH
-	subu  $sp, $sp, 4
-	lw    $a0, 4($sp)	# POP
-	addu  $sp, $sp, 4
-	li    $v0, 1
-	syscall
-	.text
-	la    $t0, .L1
-	sw    $t0, 0($sp)	# PUSH
-	subu  $sp, $sp, 4
-	lw    $a0, 4($sp)	# POP
-	addu  $sp, $sp, 4
-	li    $v0, 4
-	syscall
 _test_stmt_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
 	move  $t0, $fp		# save control link
@@ -1225,8 +1202,7 @@ _test_stmt_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_conditional:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -1473,6 +1449,137 @@ main:		# METHOD ENTRY
 	sw    $t0, 0($t1)
 	j     .L70
 .L71:
+	.text
+	la    $t0, .L1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+_test_conditional_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+_greetings:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	lw    $t0, 4($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t1, 1
+	bne   $t0, $t1, .L76
+	.data
+.L78:	.asciiz "Hello World!\n"
+	.text
+	la    $t0, .L78
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+	j     .L77
+.L76:
+	.data
+.L79:	.asciiz "Goodnight World!\n"
+	.text
+	la    $t0, .L79
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 4
+	syscall
+.L77:
+_greetings_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+_calculate_plus:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	lw    $t0, 4($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 8($fp)
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	add   $t0, $t0, $t1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $v0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+_calculate_plus_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	li    $t0, 1
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _greetings
+	li    $t0, 4
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t0, 0
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _greetings
+	li    $t0, 4
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $t0, 128
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	li    $t0, 128
+	sw    $t0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	jal   _calculate_plus
+	li    $t0, 8
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $a0, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	li    $v0, 1
+	syscall
 	.text
 	la    $t0, .L1
 	sw    $t0, 0($sp)	# PUSH

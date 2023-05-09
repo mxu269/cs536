@@ -102,12 +102,12 @@ void test_stmt(){
     a--;
     print <- a;
     print <- "\n";
-    scan -> a;
-    print <- a;
-    print <- "\n";
+    //scan -> a;
+    //print <- a;
+    //print <- "\n";
 }
 
-void main(){
+void test_conditional(){
     integer a;
     a = 6;
     if (a <= 10) {
@@ -131,5 +131,25 @@ void main(){
         a++;
         a++;
     }
+    print <- "\n";
+}
+
+void greetings(boolean isMorning){
+    if (isMorning){
+        print <- "Hello World!\n";
+    } else {
+        print <- "Goodnight World!\n";
+    }
+    
+}
+
+integer calculate_plus(integer num1, integer num2){
+    return num1 + num2;
+}
+
+void main(){
+    greetings(true);
+    greetings(false);
+    print <- calculate_plus(128, 128);
     print <- "\n";
 }

@@ -59,6 +59,9 @@ SymTabEmptyException.class: SymTabEmptyException.java
 test: P6.class
 	java -cp $(CP) P6 test.brevis test.s
 
+nest: P6.class
+	java -cp $(CP) P6 nest.brevis nest.s
+
 ###
 # clean
 ###
