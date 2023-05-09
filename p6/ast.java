@@ -1322,8 +1322,16 @@ class WhileStmtNode extends StmtNode {
 
     @Override
     public void codeGen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'codeGen'");
+        String startLab = Codegen.nextLabel();
+        String doneLab = Codegen.nextLabel();
+        Codegen.genLabel(startLab);
+        myExp.codeGen();
+        Codegen.genPop(Codegen.T0);
+        Codegen.generate("li", Codegen.T1, 1);
+        Codegen.generate("bne", Codegen.T0, Codegen.T1, doneLab);
+        myStmtList.codeGen();
+        Codegen.generate("j", startLab);
+        Codegen.genLabel(doneLab);
     }
 }
 

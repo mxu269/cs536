@@ -123,4 +123,13 @@ void main(){
     } else {
         print <- " grater than 100\n";
     }
+    print <- "now print even numbers from 2 to 10\n";
+    a = 2;
+    while (a <= 10){
+        print <- a;
+        print <- " ";
+        a++;
+        a++;
+    }
+    print <- "\n";
 }
