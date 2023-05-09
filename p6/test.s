@@ -1040,8 +1040,6 @@ _test_logical:		# METHOD ENTRY
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 .L48:
-	lw    $t0, 4($sp)	# POP
-	addu  $sp, $sp, 4
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 .L49:
@@ -1098,8 +1096,6 @@ _test_logical:		# METHOD ENTRY
 	lw    $t0, 4($sp)	# POP
 	addu  $sp, $sp, 4
 .L54:
-	lw    $t0, 4($sp)	# POP
-	addu  $sp, $sp, 4
 	sw    $t1, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 .L55:
@@ -1537,8 +1533,7 @@ _calculate_plus_exit:		# FUNCTION EXIT
 	move  $sp, $t0		# restore SP
 	jr    $ra
 	.text
-	.globl main
-main:		# METHOD ENTRY
+_test_call:		# METHOD ENTRY
 	sw    $ra, 0($sp)	# PUSH
 	subu  $sp, $sp, 4
 	sw    $fp, 0($sp)	# PUSH
@@ -1588,6 +1583,105 @@ main:		# METHOD ENTRY
 	addu  $sp, $sp, 4
 	li    $v0, 4
 	syscall
+_test_call_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+_test_all:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	jal   _test_write
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_assign
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_arithmitic
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_equality
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_relational
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_logical
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_stmt
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_conditional
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+	jal   _test_call
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
+_test_all_exit:		# FUNCTION EXIT
+	lw    $ra, 0($fp)
+	move  $t0, $fp		# save control link
+	lw    $fp, -4($fp)	# restore FP
+	move  $sp, $t0		# restore SP
+	jr    $ra
+	.text
+	.globl main
+main:		# METHOD ENTRY
+	sw    $ra, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	sw    $fp, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	addu  $fp, $sp, 8
+	subu  $sp, $sp, 0
+	jal   _test_all
+	li    $t0, 0
+	addu  $sp, $sp, $t0
+	sw    $v0, 0($sp)	# PUSH
+	subu  $sp, $sp, 4
+	lw    $t1, 4($sp)	# POP
+	addu  $sp, $sp, 4
 _main_exit:		# FUNCTION EXIT
 	lw    $ra, 0($fp)
 	move  $t0, $fp		# save control link

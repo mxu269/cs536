@@ -2880,7 +2880,6 @@ class OrNode extends LogicalExpNode {
         Codegen.genLabel(true1Lab);
         Codegen.genPop(Codegen.T0);
         Codegen.genLabel(true2Lab);
-        Codegen.genPop(Codegen.T0);
         Codegen.genPush(Codegen.T1);
         Codegen.genLabel(doneLab);
     }

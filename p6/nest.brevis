@@ -1,8 +1,7 @@
-integer calculate_plus(integer num1, integer num2){
-    return num1 + num2;
+void test_logical(){
+    //print <- true && true;
+    print <- true || false;
 }
-
 void main(){
-    print <- calculate_plus(5, 5);
-    //print <- "\n";
+    test_logical();
 }

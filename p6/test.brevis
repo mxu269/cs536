@@ -147,9 +147,25 @@ integer calculate_plus(integer num1, integer num2){
     return num1 + num2;
 }
 
-void main(){
+void test_call(){
     greetings(true);
     greetings(false);
     print <- calculate_plus(128, 128);
     print <- "\n";
+}
+
+void test_all(){
+    test_write();
+    test_assign();
+    test_arithmitic();
+    test_equality();
+    test_relational();
+    test_logical();
+    test_stmt();
+    test_conditional();
+    test_call();
+}
+
+void main(){
+    test_all();
 }
